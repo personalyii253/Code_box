@@ -1,0 +1,1466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class=" widthauto" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>微信,weixin,js原生Ajax-HTML5开发-微信开发者平台，微信开发者社区，微信公众号   </title>
+<link href="http://www.henkuai.com/thread-9679-1-1.html" rel="canonical">
+<meta name="keywords" content="微信,微信下载,weixin,微信开发者平台js原生Ajax微信开发HTML5开发">
+<meta name="description" content="微信,微信下载,weixin,js原生Ajax微信开发者平台，henkuai.com ">
+<meta name="generator" content="Discuz! X3.2">
+<meta name="author" content="Discuz! Team and Comsenz UI Team">
+<meta name="copyright" content="2001-2013 Comsenz Inc.">
+<meta name="MSSmartTagsPreventParsing" content="True">
+<meta http-equiv="MSThemeCompatible" content="Yes">
+<!-- base href="http://www.henkuai.com/" --><link rel="stylesheet" type="text/css" href="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/style_4_common.css"><link rel="stylesheet" type="text/css" href="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/style_4_forum_viewthread.css"><script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/hm.js"></script><script type="text/javascript">var STYLEID = '4', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'ccE', charset = 'utf-8', discuz_uid = '68756', cookiepre = 'HBu2_2132_', cookiedomain = '', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|微值|,2|微币|', defaultstyle = '', REPORTURL = 'aHR0cDovL3d3dy5oZW5rdWFpLmNvbS90aHJlYWQtOTY3OS0xLTEuaHRtbA==', SITEURL = 'http://www.henkuai.com/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/common.js" type="text/javascript"></script>
+<meta name="application-name" content="微信开发者平台">
+<meta name="msapplication-tooltip" content="微信开发者平台">
+<meta name="msapplication-task" content="name=门户;action-uri=http://www.henkuai.com/portal.php;icon-uri=http://www.henkuai.com/static/image/common/portal.ico"><meta name="msapplication-task" content="name=首页;action-uri=http://www.henkuai.com/forum.php;icon-uri=http://www.henkuai.com/static/image/common/bbs.ico">
+<meta name="msapplication-task" content="name=动态;action-uri=http://www.henkuai.com/home.php;icon-uri=http://www.henkuai.com/static/image/common/home.ico"><link rel="archives" title="微信开发者平台" href="http://www.henkuai.com/archiver/">
+<link rel="stylesheet" id="css_widthauto" type="text/css" href="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/style_4_widthauto.css">
+<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/forum.js" type="text/javascript"></script>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/jQuery.js" type="text/javascript"></script>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/mobanbusjs.js" type="text/javascript"></script>
+<link href="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/style_4_forum_moderator.css" rel="stylesheet" type="text/css" id="css_forum_moderator"><script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/smilies.js" charset="UTF-8" id="iPWPEYYFOYOIEHEaOXFOOYYoQJZabEJa" type="text/javascript"></script><link href="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/translator.css" id="SL_Style" type="text/css" rel="stylesheet"><link href="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/style.css" rel="stylesheet"><script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/common_extra.js" charset="UTF-8" id="jljdhYYFOYYKIIKJUanPNWXFOOYYoQJZ" type="text/javascript"></script></head>
+<body id="nv_forum" class="pg_viewthread" onkeydown="if(event.keyCode==27) return false;"><a href="javascript:;" style="width: 92px; height: 22px; background: rgb(255, 0, 0) url(&quot;http://open.t.qq.com/apps/qshare/images/icon.gif&quot;) no-repeat scroll 0% 0%; position: absolute; display: inline-block; left: 300px; top: 3577px; z-index: 999999;"></a>
+<div id="append_parent"><div class="sllt" style="display: none;" id="fastpostsml_menu"><div style="overflow: hidden;" id="fastpostsmiliesdiv"><div style="width: 288px;" id="fastpostsmiliesdiv_tb" class="tb tb_s cl"><ul><li class="current" id="fastpoststype_1" onclick="smilies_switch('fastpostsmiliesdiv', '8', 1, 1, 'fastpost');if(CURRENTSTYPE) {$('fastpoststype_'+CURRENTSTYPE).className='';}this.className='current';CURRENTSTYPE=1;doane(event);"><a href="javascript:;" hidefocus="true">默认</a></li><li id="fastpoststype_2" onclick="smilies_switch('fastpostsmiliesdiv', '8', 2, 1, 'fastpost');if(CURRENTSTYPE) {$('fastpoststype_'+CURRENTSTYPE).className='';}this.className='current';CURRENTSTYPE=2;doane(event);"><a href="javascript:;" hidefocus="true">酷猴</a></li><li id="fastpoststype_3" onclick="smilies_switch('fastpostsmiliesdiv', '8', 3, 1, 'fastpost');if(CURRENTSTYPE) {$('fastpoststype_'+CURRENTSTYPE).className='';}this.className='current';CURRENTSTYPE=3;doane(event);"><a href="javascript:;" hidefocus="true">呆呆男</a></li></ul></div><div id="fastpostsmiliesdiv_data"><table id="fastpostsmiliesdiv_table" cellpadding="0" cellspacing="0"><tbody><tr><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':)')" id="fastpostsmilie_1_td"><img id="smilie_1" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/smile.gif" alt=":)" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':(')" id="fastpostsmilie_2_td"><img id="smilie_2" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/sad.gif" alt=":(" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':D')" id="fastpostsmilie_3_td"><img id="smilie_3" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/biggrin.gif" alt=":D" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':\'(')" id="fastpostsmilie_4_td"><img id="smilie_4" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/cry.gif" alt=":'(" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':@')" id="fastpostsmilie_5_td"><img id="smilie_5" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/huffy.gif" alt=":@" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':o')" id="fastpostsmilie_6_td"><img id="smilie_6" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/shocked.gif" alt=":o" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':P')" id="fastpostsmilie_7_td"><img id="smilie_7" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/tongue.gif" alt=":P" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':$')" id="fastpostsmilie_8_td"><img id="smilie_8" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/shy.gif" alt=":$" height="20" width="20"></td></tr><tr><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ';P')" id="fastpostsmilie_9_td"><img id="smilie_9" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/titter.gif" alt=";P" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':L')" id="fastpostsmilie_10_td"><img id="smilie_10" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/sweat.gif" alt=":L" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':Q')" id="fastpostsmilie_11_td"><img id="smilie_11" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/mad.gif" alt=":Q" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':lol')" id="fastpostsmilie_12_td"><img id="smilie_12" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/lol.gif" alt=":lol" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':loveliness:')" id="fastpostsmilie_13_td"><img id="smilie_13" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/loveliness.gif" alt=":loveliness:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':funk:')" id="fastpostsmilie_14_td"><img id="smilie_14" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/funk.gif" alt=":funk:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':curse:')" id="fastpostsmilie_15_td"><img id="smilie_15" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/curse.gif" alt=":curse:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':dizzy:')" id="fastpostsmilie_16_td"><img id="smilie_16" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/dizzy.gif" alt=":dizzy:" height="20" width="20"></td></tr><tr><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':shutup:')" id="fastpostsmilie_17_td"><img id="smilie_17" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/shutup.gif" alt=":shutup:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':sleepy:')" id="fastpostsmilie_18_td"><img id="smilie_18" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/sleepy.gif" alt=":sleepy:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':hug:')" id="fastpostsmilie_19_td"><img id="smilie_19" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/hug.gif" alt=":hug:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':victory:')" id="fastpostsmilie_20_td"><img id="smilie_20" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/victory.gif" alt=":victory:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':time:')" id="fastpostsmilie_21_td"><img id="smilie_21" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/time.gif" alt=":time:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':kiss:')" id="fastpostsmilie_22_td"><img id="smilie_22" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/kiss.gif" alt=":kiss:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':handshake')" id="fastpostsmilie_23_td"><img id="smilie_23" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/handshake.gif" alt=":handshake" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastpostsmiliesdiv', this, 20)" onclick="seditor_insertunit('fastpost', ':call:')" id="fastpostsmilie_24_td"><img id="smilie_24" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/call.gif" alt=":call:" height="20" width="20"></td></tr></tbody></table></div><div class="sllt_p" id="fastpostsmiliesdiv_page"></div></div></div><script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/common_smilies_var.js" charset="utf-8" type="text/javascript"></script><div style="position: fixed; z-index: 801; cursor: move; left: 413px; top: 208px; width: 526px; height: 240px; display: none;" initialized="true" id="imgzoom"><div class="zoominner" id="imgzoom_zoomlayer" style="height: 240px;"><p><span class="y"><a href="http://file.henkuai.com/10006/fade11028a5d4218b6cca224d370972d.png" id="imgzoom_imglink" class="imglink" target="_blank" title="在新窗口打开">在新窗口打开</a><a id="imgzoom_adjust" href="javascipt:;" class="imgadjust" title="实际大小">实际大小</a><a href="javascript:;" onclick="hideMenu()" class="imgclose" title="关闭">关闭</a></span>鼠标滚轮缩放图片</p><div class="zimg_p" id="imgzoom_picpage"> <div style="height: 177px;" id="zimg_prev" onmouseover="dragMenuDisabled=true;this.style.backgroundPosition='0 50px'" onmouseout="dragMenuDisabled=false;this.style.backgroundPosition='0 -100px';" onclick="_zoom_page('7274', 0)" class="zimg_prev"><strong>上一张</strong></div>  <div style="height: 177px; background-position: 100% -100px;" id="zimg_next" onmouseover="dragMenuDisabled=true;this.style.backgroundPosition='100% 50px'" onmouseout="dragMenuDisabled=false;this.style.backgroundPosition='100% -100px';" onclick="_zoom_page('7269', 0)" class="zimg_next"><strong>下一张</strong></div> </div><div style="width: auto; height: auto;" class="hm" id="imgzoom_img"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/fade11028a5d4218b6cca224d370972d.png" id="imgzoom_zoom" w="506" h="177" height="177" width="506"></div></div></div><img style="opacity: 0.8; position: absolute; z-index: 100000; left: 653.5px; top: 3608.5px; display: none;" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/imageloading.gif" id="imgzoom_waiting"><div style="position: absolute; z-index: 800; top: 0px; left: 0px; width: 100%; height: 13118px; background-color: rgb(0, 0, 0); opacity: 0.5; display: none;" id="imgzoom_cover"></div></div>
+<div id="ajaxwaitid"></div>
+<div class="mobanbus_o">
+<div class="bus_header">
+<div class="bus_logo bus_fl"><h1><a href="http://www.henkuai.com/" title="微信开发者平台"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/logo.png" alt="微信开发者平台" border="0"></a></h1></div><div class="bus_box bus_nav">
+<ul><li class="select" id="mn_forum"><a href="http://www.henkuai.com/forum.php" hidefocus="true">首页</a></li><li id="mn_N42c7"><a href="http://www.henkuai.com/bestanswer.php" hidefocus="true" style="color: orange">问答求助</a></li><li id="mn_N501a"><a href="http://peixun.henkuai.com/?weixin" hidefocus="true">快学</a></li><li id="mn_Nd1ab"><a href="http://ad.henkuai.com/" hidefocus="true" style="color: orange">快赢</a></li><li id="mn_Na48d"><a href="http://wx.henkuai.com/?source=weixin" hidefocus="true" style="color: orange">快云</a></li><li id="mn_N8ca1"><a href="http://www.henkuai.com/tpgao_edu-view.html?&amp;typeid=8&amp;cpid=209&amp;courseid=8" hidefocus="true">公众号视频教程</a></li><li id="mn_N51aa"><a href="http://host.weixin.com/" hidefocus="true">公众云</a></li><li id="mn_Nd527"><a href="http://kw.idods.cn/app/games.html" hidefocus="true">快玩</a></li><li id="mn_N36bd"><a href="http://c.henkuai.com/" hidefocus="true">代码片段</a></li><li id="mn_Nd190"><a href="http://data.henkuai.com/" hidefocus="true">快数</a></li></ul>
+</div>
+</div><!--Mobanbus_cn bus_header end-->
+<div class="mobanbus_iner">
+
+
+<div class="bus_navright ">
+<!--Mobanbus_cn bus_member start-->
+<div class="bus_member">
+      <div class="bus_w100">
+
+      <div id="header_user">
+              <ul id="header_nav">
+          <li id="shopping_cart"> <span><a href="http://www.henkuai.com/home.php?mod=space&amp;do=pm" id="pm_ntc">消息 
+          <span class="avatarimg"> </span></a><a href="http://www.henkuai.com/space-uid-68756.html" target="_blank" title="访问我的空间" id="umnav" class="username" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'a'})"> 
+          <img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/4_avatar_small.jpg" onerror="this.onerror=null;this.src='source/plugin/freeaddon_randomavatar/images/4_avatar_small.jpg'"> 
+           
+          </a></span>
+          <div id="newprompter" style="float: left;"><span><a href="http://www.henkuai.com/home.php?mod=space&amp;do=notice" id="myprompt">提醒 
+             
+            </a></span></div>
+           
+          </li>
+        </ul>
+        	    	<!-- /Block user information module HEADER -->
+    <div class="header_user_drop">
+    <ul lass="p_pop nav_pop">
+    	<span class="tt">super森 , <font color="#3366CC">新人求带</font> , 积分: 25</span>
+    <li class="tt">我的</li>
+    <li><a href="http://www.henkuai.com/forum.php?mod=guide&amp;view=my">帖子</a></li>
+    <li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=favorite&amp;view=me">收藏</a></li>
+    <li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=friend">好友</a></li>
+    <li class="tt">快捷导航</li>
+     
+        <li><a href="http://www.henkuai.com/chuangmeng_shop-mycart.html" title="我的购物车" _style="background-image:url(http://www.henkuai.com/data/attachment/common/../../../source/plugin/chuangmeng_shop/static/images/task_2.png?ebzB20) !important">购物车</a></li>
+ 
+        <li><a href="http://www.henkuai.com/tpgao_edu-my.html" _style="background-image:url(http://www.henkuai.com/data/attachment/common/../../../source/plugin/tpgao_edu/static/icon_b.png?iVCNhH) !important">学习中心</a></li>
+ 
+        <li><a href="http://www.henkuai.com/home.php?mod=magic" _style="background-image:url(http://www.henkuai.com/static/image/feed/magic_b.png) !important">道具</a></li>
+ 
+        <li><a href="http://www.henkuai.com/home.php?mod=medal" _style="background-image:url(http://www.henkuai.com/static/image/feed/medal_b.png) !important">勋章</a></li>
+ 
+        <li><a href="http://www.henkuai.com/home.php?mod=task" _style="background-image:url(http://www.henkuai.com/static/image/feed/task_b.png) !important">任务</a></li>
+ 
+        <li><a href="http://www.henkuai.com/home.php" _style="background-image:url(http://www.henkuai.com/static/image/feed/feed_b.png) !important">动态</a></li>
+ 
+        <li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=album" _style="background-image:url(http://www.henkuai.com/static/image/feed/album_b.png) !important">相册</a></li>
+ 
+        <li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=doing" _style="background-image:url(http://www.henkuai.com/static/image/feed/doing_b.png) !important">记录</a></li>
+ 
+        <li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=wall" _style="background-image:url(http://www.henkuai.com/static/image/feed/wall_b.png) !important">留言板</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=spacecp">设置</a></li>
+    <li class="tt">设置</li>
+    <li><a href="http://www.henkuai.com/portal.php?mod=portalcp">
+ 门户管理  </a></li> 
+          <li><a href="http://www.henkuai.com/member.php?mod=logging&amp;action=logout&amp;formhash=e49bbeea">退出</a></li>
+    </ul>
+</div>
+    </div><!--Mobanbus_cn header_user end-->
+    <div class="bus_search">    <div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+<input name="mod" id="scbar_mod" value="forum" type="hidden">
+<input name="formhash" value="e49bbeea" type="hidden">
+<input name="srchtype" value="title" type="hidden">
+<input name="srhfid" value="37" type="hidden">
+<input name="srhlocality" value="forum::viewthread" type="hidden">
+<table cellpadding="0" cellspacing="0">
+<tbody><tr>             
+<td class="scbar_txt_td"><input placeholder="请输入搜索内容" class=" xg1" name="srchtxt" id="scbar_txt" autocomplete="off" x-webkit-speech="" speech="" type="text"></td>
+<td class="scbar_type_td bus_hide"><a href="javascript:;" id="scbar_type" class="xg1" onclick="showMenu(this.id)" hidefocus="true">帖子</a></td>                
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="curforum" fid="37">本版</a></li><li><a href="javascript:;" rel="article">文章</a></li><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+<script type="text/javascript">
+    jQuery(function(){
+jQuery("#scbar #scbar_txt").focus(function(){
+  jQuery("#scbar").addClass("longer");
+}).blur(function(){
+  jQuery("#scbar").removeClass("longer");
+});
+    })
+</script>
+ </div>
+<div class="bus_push"><a href="http://www.henkuai.com/forum.php?mod=misc&amp;action=nav" onclick="showWindow('nav', this.href, 'get', 0)" class="bus_push_addnew">发布</a></div>
+<div class="bus_fr" style="line-height:35px;">
+
+<span class="pipe">|</span><a href="javascript:;" onclick="showWindow('wechat_bind', 'plugin.php?id=wechat:bind')"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/wechat_bind.png" class="qq_bind" align="absmiddle"></a>
+					
+  	</div>	
+  </div>
+</div>
+<!--Mobanbus_cn bus_member end-->
+</div>
+
+
+<ul class="p_pop h_pop" id="plugin_menu" style="display: none">  <li><a href="http://www.henkuai.com/k_ask-k_ask.html" id="mn_plink_k_ask">问答中心</a></li>
+ </ul>
+<div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div><div id="mu" class="cl">
+</div>
+<ul id="myprompt_menu" class="p_pop" style="display: none;">				
+<li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=pm" id="pm_ntc" style="background-repeat: no-repeat; background-position: 0 50%;"><em class="prompt_news_0"></em>消息</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=follow&amp;do=follower"><em class="prompt_follower_0"></em>新听众</a></li>
+<li class="ignore_noticeli"><a href="javascript:;" onclick="setcookie('ignore_notice', 1);hideMenu('myprompt_menu')" title="暂不提醒"><em class="ignore_notice"></em></a></li>
+</ul>
+<div id="sslct_menu" class="cl p_pop" style="display: none;">
+<span class="sslct_btn" onclick="extstyle('')" title="默认"><i></i></span></div>
+<ul id="myitem_menu" class="p_pop" style="display: none;">
+<li><a href="http://www.henkuai.com/forum.php?mod=guide&amp;view=my">帖子</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=favorite&amp;view=me">收藏</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=friend">好友</a></li>
+</ul>
+<div id="qmenu_menu" class="p_pop " style="display: none;">
+<ul class="cl nav"><li><a href="http://www.henkuai.com/chuangmeng_shop-mycart.html" title="我的购物车" style="background-image:url(http://www.henkuai.com/data/attachment/common/../../../source/plugin/chuangmeng_shop/static/images/task_2.png?ebzB20) !important">购物车</a></li>
+<li><a href="http://www.henkuai.com/tpgao_edu-my.html" style="background-image:url(http://www.henkuai.com/data/attachment/common/../../../source/plugin/tpgao_edu/static/icon_b.png?iVCNhH) !important">学习中心</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=magic" style="background-image:url(http://www.henkuai.com/static/image/feed/magic_b.png) !important">道具</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=medal" style="background-image:url(http://www.henkuai.com/static/image/feed/medal_b.png) !important">勋章</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=task" style="background-image:url(http://www.henkuai.com/static/image/feed/task_b.png) !important">任务</a></li>
+<li><a href="http://www.henkuai.com/home.php" style="background-image:url(http://www.henkuai.com/static/image/feed/feed_b.png) !important">动态</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=album" style="background-image:url(http://www.henkuai.com/static/image/feed/album_b.png) !important">相册</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=doing" style="background-image:url(http://www.henkuai.com/static/image/feed/doing_b.png) !important">记录</a></li>
+<li><a href="http://www.henkuai.com/home.php?mod=space&amp;do=wall" style="background-image:url(http://www.henkuai.com/static/image/feed/wall_b.png) !important">留言板</a></li>
+</ul>
+<div id="fjump_menu" class="btda"></div></div>
+<div class="clear"></div>
+
+<div class="bus_hads"></div><div class="bus_bd98">
+<script type="text/javascript">var fid = parseInt('37'), tid = parseInt('9679');</script>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/forum_moderate.js" type="text/javascript"></script>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/forum_viewthread.js" type="text/javascript"></script>
+<script type="text/javascript">zoomstatus = parseInt(1);var imagemaxwidth = '600';var aimgcount = new Array();</script>
+<style id="diy_style" type="text/css"></style>
+<!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+<style id="diy_style" type="text/css"></style>
+<div id="ct" class="wp cl">
+    <div class="bus_viewthread "> 
+    	<div class="bus_yt">        	<dl>
+            	<dt>
+<a href="http://www.henkuai.com/forum-37-1.html"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/common_37_icon.png" alt="HTML5开发"></a>
+</dt>
+                <dd>
+                	<div class="bus_fl tit">
+                    	<h1><a href="http://www.henkuai.com/forum-37-1.html">HTML5开发</a></h1>
+                        <p>
+                                            	<a href="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=favorite&amp;type=forum&amp;id=37&amp;handlekey=favoriteforum" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);">+ 关注</a>
+                    	                        </p>
+                   	</div>
+                    <div class="bus_fl xg">
+                    	<p>
+<span>关注：<i>89</i></span></p>
+                        <p>所属分类： <em>›</em> <a href="http://www.henkuai.com/forum.php?gid=1">微信开发</a> <em>›</em> <a href="http://www.henkuai.com/forum-37-1.html">HTML5开发</a></p>
+                   	</div>
+                   	
+                   	                </dd>
+            </dl>
+        	        </div>
+<div class="wp">
+<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+<ul class="p_pop" id="newspecial_menu" style="display: none">
+<li><a href="http://www.henkuai.com/forum.php?mod=post&amp;action=newthread&amp;fid=37">发表帖子</a></li><li class="poll"><a href="http://www.henkuai.com/forum.php?mod=post&amp;action=newthread&amp;fid=37&amp;special=1">发起投票</a></li><li class="reward"><a href="http://www.henkuai.com/forum.php?mod=post&amp;action=newthread&amp;fid=37&amp;special=3">发布悬赏</a></li></ul>
+<div id="modmenu" class="xi2 pbm pt10"><a href="http://www.henkuai.com/portal.php?mod=portalcp&amp;ac=article&amp;from_idtype=tid&amp;from_id=9679">生成文章</a><span style="visibility: hidden;" class="pipe">|</span></div>
+
+
+<div id="postlist" class="pl bm">
+  <div class="bus_viewthread_top">
+<table cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td class="plc ptm pb10">
+<div class="bus_threadpost">
+
+
+<a id="post_reply" onclick="showWindow('reply', 'forum.php?mod=post&amp;action=reply&amp;fid=37&amp;tid=9679')" href="javascript:;" title="回复"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/pn_reply.png" alt="回复"></a>
+<a id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=37')" href="javascript:;" title="发新帖"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/pn_post.png" alt="发新帖"></a>
+
+</div>
+<h1 class="ts">
+<a href="http://www.henkuai.com/forum.php?mod=forumdisplay&amp;fid=37&amp;filter=typeid&amp;typeid=11">[h5开发博客]</a>
+<span id="thread_subject">js原生Ajax</span>
+</h1>
+<span class="xg1">
+<a href="http://www.henkuai.com/thread-9679-1-1.html" onclick="return copyThreadUrl(this, '微信开发者平台')">[复制链接]</a>
+</span>
+</td>
+<td class="pls ptn pbn">
+<div class="hm ptn">
+<span class="xg1">查看:</span> <span class="xi1">356</span><span class="pipe">|</span><span class="xg1">回复:</span> <span class="xi1">0</span>
+</div>
+</td>
+</tr>
+</tbody></table>
+  </div>
+
+<div id="post_41064">
+  <div class="bus_viewthread_br"><table id="pid41064" class="plhin" summary="pid41064" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td class="pls" rowspan="2">
+<div style="top: 0px; position: fixed;" id="favatar41064" class="pls favatar">
+ <a name="lastpost"></a><div class="pi">
+<div class="authi"><a href="http://www.henkuai.com/space-uid-16593.html" target="_blank" class="xw1" style="color: #CCFF33">natalihsa</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo41064" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo41064_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://www.henkuai.com/space-uid-16593.html" target="_blank" class="xi2" style="color: #CCFF33">natalihsa</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://www.henkuai.com/home.php?mod=space&amp;uid=16593&amp;do=profile" target="_blank" class="xi2">3760</a></dd>
+</dl><div class="imicn">
+<a href="http://www.henkuai.com/home.php?mod=space&amp;uid=16593&amp;do=profile" target="_blank" title="查看详细资料"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar" onmouseover="showauthor(this, 'userinfo41064')"><a href="http://www.henkuai.com/space-uid-16593.html" class="avtm" target="_blank"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/2_avatar_middle.jpg" onerror="this.onerror=null;this.src='source/plugin/freeaddon_randomavatar/images/2_avatar_middle.jpg'"></a></div>
+</div>
+<dl class="pil cl"><dt><a href="http://www.henkuai.com/bestanswer.php?mod=user&amp;uid=16593" target="_blank"><font color="red">最佳答案</font></a></dt><dd><a href="http://www.henkuai.com/bestanswer.php?mod=user&amp;uid=16593" target="_blank"><font color="red">0</font></a>&nbsp; </dd></dl><div class="tns xg2"><table cellpadding="0" cellspacing="0"><tbody><tr><th><p><a href="http://www.henkuai.com/home.php?mod=space&amp;uid=16593&amp;do=thread&amp;type=thread&amp;view=me&amp;from=space" class="xi2">102</a></p>主题</th><th><p><a href="http://www.henkuai.com/home.php?mod=space&amp;uid=16593&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" class="xi2">112</a></p>帖子</th><td><p><a href="http://www.henkuai.com/home.php?mod=space&amp;uid=16593&amp;do=profile" class="xi2">3760</a></p>积分</td></tr></tbody></table></div>
+<p><a href="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=13" target="_blank"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/common_13_usergroup_icon.gif" alt="" class="vm"></a></p>
+<p><em><a href="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=13" target="_blank"><font color="#CCFF33">S2</font></a></em></p>
+
+
+<p><span id="g_up41064" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!'});"></span></p>
+<div id="g_up41064_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c"><font color="#CCFF33">S2</font>, 积分 3760, 距离下一级还需 2240 积分</div></div>
+
+
+<p><span class="pbg2" id="upgradeprogress_41064" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!', 'menuid':'g_up41064_menu'});"><span class="pbr2" style="width:25%;"></span></span></p>
+<div id="g_up41064_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c"><font color="#CCFF33">S2</font>, 积分 3760, 距离下一级还需 2240 积分</div></div>
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://www.henkuai.com/home.php?mod=space&amp;uid=16593&amp;do=profile" target="_blank" class="xi2">3760</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_16593&amp;touid=16593&amp;pmid=0&amp;daterange=2&amp;pid=41064&amp;tid=9679" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+	
+<td class="plc">
+<div class="pi">
+<div id="fj" class="y">
+<label class="z">电梯直达</label>
+<input class="px p_fre z" size="2" onkeyup="$('fj_btn').href='forum.php?mod=redirect&amp;ptid=9679&amp;authorid=0&amp;postno='+this.value" onkeydown="if(event.keyCode==13) {window.location=$('fj_btn').href;return false;}" title="跳转到指定楼层" type="text">
+<a href="javascript:;" id="fj_btn" class="z" title="跳转到指定楼层"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/fj_btn.png" alt="跳转到指定楼层" class="vm"></a>
+</div>
+<strong>
+<a href="http://www.henkuai.com/thread-9679-1-1.html" id="postnum41064" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+楼主</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon41064" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/ico_lz.png">
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton41064">发表于 2016-3-28 23:12:07</em>
+<span class="pipe">|</span>
+<a href="http://www.henkuai.com/forum.php?mod=viewthread&amp;tid=9679&amp;page=1&amp;authorid=16593" rel="nofollow">只看该作者</a>
+<span class="pipe">|</span><a href="http://www.henkuai.com/forum.php?mod=viewthread&amp;tid=9679&amp;from=album">只看大图</a>
+<span class="none"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/arw_r.gif" class="vm" alt="回帖奖励"></span>
+<span class="pipe show">|</span><a href="http://www.henkuai.com/forum.php?mod=viewthread&amp;tid=9679&amp;extra=page%3D1&amp;ordertype=1" class="show">倒序浏览</a>
+<span class="pipe show">|</span><a href="javascript:;" onclick="readmode($('thread_subject').innerHTML, 41064);" class="show">阅读模式</a>
+</div>
+</div>
+</div><div class="pct"><style type="text/css">.pcb{margin-right:0}</style><div class="pcb">
+ 
+<div class="t_fsz">
+<table cellpadding="0" cellspacing="0"><tbody><tr><td class="t_f" id="postmessage_41064">
+<div align="left"> * AJAX</div><div align="left">&nbsp; &nbsp;1.基本内容</div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">同步交互与异步交互</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">同步交互</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">客户端向服务器端发送请求</font><font face="Times New Roman">,</font><font face="宋体">到服务器端向客户端进行响应</font><font face="Times New Roman">,</font><font face="宋体">这个过程中</font><font face="Times New Roman">,</font><font face="宋体">用户不能做任何其他事情的</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">异步交互</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">客户端向服务器端发送请求</font><font face="Times New Roman">,</font><font face="宋体">到服务器端向客户端进行响应</font><font face="Times New Roman">,</font><font face="宋体">这个过程中</font><font face="Times New Roman">,</font><font face="宋体">用户可以</font>做任何其他事情的</div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">同步交互与异步交互的优缺点</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">同步交互</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">缺点</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">使用多页面实现 </font><font face="Times New Roman">- </font><font face="宋体">体积较大</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">发送的数据包较大 </font><font face="Times New Roman">- </font><font face="宋体">带宽要求高</font><font face="Times New Roman">,</font><font face="宋体">对服务器端造成压力大</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">优点</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">功能明确 </font><font face="Times New Roman">- </font><font face="宋体">分角色开发</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">低耦合</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">异步交互</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">优点</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">使用单页面实现 </font><font face="Times New Roman">- </font><font face="宋体">体积较小</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">发送的数据包较小 </font><font face="Times New Roman">- </font><font face="宋体">带宽要求低</font><font face="Times New Roman">,</font><font face="宋体">对服务器端造成压力小</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">缺点</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">高耦合</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</div><div align="left">&nbsp; &nbsp;2.B/S<font face="宋体">架构下的异步技术</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * AJAX</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * &lt;iframe src=""&gt;<font face="宋体">内联框架</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* AJAX</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">全称为</font><font face="Times New Roman">Asynchronous JavaScript and Xml</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">译为</font><font face="Times New Roman">JavaScript</font><font face="宋体">和</font><font face="Times New Roman">XML</font><font face="宋体">的异步</font><font face="Times New Roman">(</font><font face="宋体">异步的</font><font face="Times New Roman">JavaScript</font><font face="宋体">和</font><font face="Times New Roman">XML)</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * (<font face="宋体">不严格</font><font face="Times New Roman">)</font><font face="宋体">定义</font><font face="Times New Roman">:</font><font face="宋体">客户端向服务器端发送请求</font><font face="Times New Roman">,</font><font face="宋体">而无需刷新当前页面的技术</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">注意</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * AJAX<font face="宋体">是实现</font><font face="Times New Roman">B/S</font><font face="宋体">架构下的异步交互</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * AJAX<font face="宋体">并不是一个</font><font face="Times New Roman">(</font><font face="宋体">新</font><font face="Times New Roman">)</font><font face="宋体">技术</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* AJAX<font face="宋体">包含哪些技术</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * JavaScript</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * DOM</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * XML</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * ...</div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* AJAX<font face="宋体">的核心对象 </font><font face="Times New Roman">- XMLHttpRequest</font><font face="宋体">对象</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">如何创建</font><font face="Times New Roman">XMLhttpRequest</font><font face="宋体">对象</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;function getXhr(){</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;var xhr = null;//<font face="宋体">定义核心对象</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if(window.XMLHttpRequest){//<font face="宋体">其他浏览器</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;xhr = new XMLHttpRequest();</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;}else{//IE<font face="宋体">浏览器</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; xhr = new ActiveXObject("Microsoft.XMLHttp");</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; }</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return xhr;</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; }</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * XMLHttpRequest<font face="宋体">对象的</font><font face="Times New Roman">API</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">属性</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * readyState<font face="宋体">属性 </font><font face="Times New Roman">- </font><font face="宋体">表示服务器端的通信状态</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* 0 - (<font face="宋体">服务器端</font><font face="Times New Roman">)</font><font face="宋体">未初始化</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* 1 - (<font face="宋体">服务器端</font><font face="Times New Roman">)</font><font face="宋体">正在连接</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* 2 - (<font face="宋体">服务器端</font><font face="Times New Roman">)</font><font face="宋体">正在接收</font>数据|<font face="宋体">客户端正在请求</font>数据</div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* 3 - (<font face="宋体">服务器端</font><font face="Times New Roman">)</font><font face="宋体">正在响应</font><font face="Times New Roman">|</font><font face="宋体">客户端正在接收</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* 4 - (<font face="宋体">服务器端</font><font face="Times New Roman">)</font><font face="宋体">响应完毕</font><font face="Times New Roman">|</font><font face="宋体">客户端接收完毕</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; * status<font face="宋体">属性 </font><font face="Times New Roman">- </font><font face="宋体">表示状态码</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * responseText<font face="宋体">属性 </font><font face="Times New Roman">- </font><font face="宋体">以文本格式进行接收服务器端的响应数据</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * responseXML<font face="宋体">属性 </font><font face="Times New Roman">- </font><font face="宋体">以</font><font face="Times New Roman">XML</font><font face="宋体">格式进行接收服务器端的响应数据</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">方法</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * open()<font face="宋体">方法 </font><font face="Times New Roman">- </font><font face="宋体">与服务器端建立连接</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * send()<font face="宋体">方法 </font><font face="Times New Roman">- </font><font face="宋体">向服务器端发送请求数据</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * setRequestHeader()<font face="宋体">方法 </font><font face="Times New Roman">- </font><font face="宋体">设置请求头</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">事件</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * onreadystatechange<font face="宋体">事件</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">作用 </font><font face="Times New Roman">- </font><font face="宋体">监听服务器端的通信状态</font><font face="Times New Roman">(</font><font face="宋体">改变</font><font face="Times New Roman">)</font></div><div align="left"> </div><div align="left">&nbsp; &nbsp;* <font face="宋体">实现</font><font face="Times New Roman">Ajax</font><font face="宋体">的步骤</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">创建</font><font face="Times New Roman">Ajax</font><font face="宋体">的核心对象 </font><font face="Times New Roman">- XMLHttpRequest</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">与服务器端建立连接</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">使用的是</font><font face="Times New Roman">XMLHttpRequest</font><font face="宋体">对象的</font><font face="Times New Roman">open()</font><font face="宋体">方法</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; open(type,url,async)<font face="宋体">方法</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * type - <font face="宋体">请求类型</font><font face="Times New Roman">(</font><font face="宋体">方式</font><font face="Times New Roman">) GET|POST</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * url - <font face="宋体">请求地址</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * async - <font face="宋体">是否异步</font><font face="Times New Roman">(Boolean</font><font face="宋体">值</font><font face="Times New Roman">)</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* true - <font face="宋体">默认值</font><font face="Times New Roman">,</font><font face="宋体">表示异步</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* false - <font face="宋体">不建议使用</font><font face="Times New Roman">,</font><font face="宋体">表示同步</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">注意</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* async<font face="宋体">是</font><font face="Times New Roman">XMLHttpRequest</font><font face="宋体">对象的第一个版本</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* XMLHttpRequest<font face="宋体">对象的第二个版本没有</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">向服务器端发送请求数据</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">使用的是</font><font face="Times New Roman">XMLHttpRequest</font><font face="宋体">对象的</font><font face="Times New Roman">send()</font><font face="宋体">方法</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;send()<font face="宋体">方法</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * GET<font face="宋体">方式的请求 </font><font face="Times New Roman">- </font><font face="宋体">该方法失效</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">注意</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">该步骤</font><font face="Times New Roman">(</font><font face="宋体">方法</font><font face="Times New Roman">)</font><font face="宋体">是不能被省略的</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">请求数据添加在</font><font face="Times New Roman">URL</font><font face="宋体">后面</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">写法</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* xhr.send(null)</div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * POST<font face="宋体">方式的请求</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">注意</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">默认依旧无效的</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">调用</font><font face="Times New Roman">send()</font><font face="宋体">方法前</font><font face="Times New Roman">,</font><font face="宋体">设置请求头信息</font></div><div align="left">&nbsp;
+ &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");</div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp; </div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">接收服务器端的响应数据</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">使用</font>&nbsp;&nbsp;XMLHttpRequest<font face="宋体">对象的</font><font face="Times New Roman">onreadystatechange</font><font face="宋体">事件</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">用于监听服务器端的通信状态</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">使用</font>&nbsp;&nbsp;XMLHttpRequest<font face="宋体">对象的</font><font face="Times New Roman">readyState</font><font face="宋体">属性</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">判断服务器端当前的通信状态</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* <font face="宋体">备选值</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; * 0 - <font face="宋体">未初始化</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; * 1 - <font face="宋体">正在连接</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; * 2 - <font face="宋体">正在请求</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; * 3 - <font face="宋体">正在响应</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; * 4 - <font face="宋体">响应完毕</font></div><div align="left">例如：使用 <font face="Times New Roman">onreadystatechange </font><font face="宋体">事件监听 服务器端通信状态</font><font face="Times New Roman">readyState</font><font face="宋体">：</font></div><div class="blockcode"><div id="code_z9o"><ol><li>&lt;!doctype html&gt;<br>
+</li><li>&lt;html lang="en"&gt;<br>
+</li><li> &lt;head&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;title&gt;AJAX的readyState属性&lt;/title&gt;<br>
+</li><li> &lt;/head&gt;<br>
+</li><li> &lt;body&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;input type="button" id="btn" value="readyState"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;script&gt;<br>
+</li><li>var btn = document.getElementById("btn");<br>
+</li><li>btn.onclick = function(){<br>
+</li><li>// 1. 创建XMLHttpRequest对象<br>
+</li><li>var xhr = getXhr();<br>
+</li><li>// 3. 建立连接<br>
+</li><li>xhr.open("get","03.php");<br>
+</li><li>// 2. 接收响应(注册监听)<br>
+</li><li>xhr.onreadystatechange = function(){<br>
+</li><li>alert(xhr.readyState);<br>
+</li><li>}<br>
+</li><li>// 4. 发送请求<br>
+</li><li>xhr.send(null);<br>
+</li><li>}<br>
+</li><li>&nbsp; &nbsp;function getXhr(){<br>
+</li><li>var xhr = null;//定义核心对象<br>
+</li><li>if(window.XMLHttpRequest){//其他浏览器<br>
+</li><li>xhr = new XMLHttpRequest();<br>
+</li><li>}else{//IE浏览器<br>
+</li><li>xhr = new ActiveXObject("Microsoft.XMLHttp");<br>
+</li><li>}<br>
+</li><li>return xhr;<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;}<br>
+</li><li>&nbsp;&nbsp;&lt;/script&gt;<br>
+</li><li> &lt;/body&gt;<br>
+</li><li>&lt;/html&gt;</li></ol></div><em onclick="copycode($('code_z9o'));">复制代码</em></div><br>
+<div align="left">下面是 <font face="Times New Roman">php</font><font face="宋体">文件</font><font face="Times New Roman">(03.php):</font></div><div class="blockcode"><div id="code_Edc"><ol><li>&lt;?php<br>
+</li><li>echo 'get ajax success.';<br>
+</li><li>?&gt;</li></ol></div><em onclick="copycode($('code_Edc'));">复制代码</em></div><br>
+<div align="left">下面是页面效果：</div><div align="left">
+<ignore_js_op>
+
+<img initialized="true" id="aimg_7268" aid="7268" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/fade11028a5d4218b6cca224d370972d.png" zoomfile="
+http://file.henkuai.com/10006/fade11028a5d4218b6cca224d370972d.png
+" file="
+http://file.henkuai.com/10006/fade11028a5d4218b6cca224d370972d.png
+" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" width="506">
+
+<div initialized="true" class="tip tip_4 aimg_tip" id="aimg_7268_menu" style="position: absolute; z-index: 301; left: 341.983px; top: 3490.2px; display: none;" disautofocus="true">
+<div class="xs0">
+<p><strong>图片1.png</strong> <em class="xg1">(9.62 KB, 下载次数: 2)</em></p>
+<p>
+<a href="http://www.henkuai.com/forum.php?mod=attachment&amp;aid=NzI2OHxkZWMxNjUyMnwxNDYxOTI4NDI5fDY4NzU2fDk2Nzk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_7268" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=7268&amp;handlekey=savephoto_7268">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2016-3-28 23:07 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+</div><div align="left">
+<ignore_js_op>
+
+<img initialized="true" id="aimg_7269" aid="7269" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/65676e95902f4a9e831e1da95a222ad4.png" zoomfile="
+http://file.henkuai.com/10006/65676e95902f4a9e831e1da95a222ad4.png
+" file="
+http://file.henkuai.com/10006/65676e95902f4a9e831e1da95a222ad4.png
+" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" width="501">
+
+<div class="tip tip_4 aimg_tip" id="aimg_7269_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>图片2.png</strong> <em class="xg1">(11.75 KB, 下载次数: 2)</em></p>
+<p>
+<a href="http://www.henkuai.com/forum.php?mod=attachment&amp;aid=NzI2OXw3YWIxYWRjZHwxNDYxOTI4NDI5fDY4NzU2fDk2Nzk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_7269" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=7269&amp;handlekey=savephoto_7269">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2016-3-28 23:07 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+</div><div align="left">
+<ignore_js_op>
+
+<img initialized="true" id="aimg_7270" aid="7270" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/314ed18cef954f07b2ebd125575765e5.png" zoomfile="
+http://file.henkuai.com/10006/314ed18cef954f07b2ebd125575765e5.png
+" file="
+http://file.henkuai.com/10006/314ed18cef954f07b2ebd125575765e5.png
+" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" width="470">
+
+<div class="tip tip_4 aimg_tip" id="aimg_7270_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>图片3.png</strong> <em class="xg1">(11.6 KB, 下载次数: 2)</em></p>
+<p>
+<a href="http://www.henkuai.com/forum.php?mod=attachment&amp;aid=NzI3MHw0Nzg1ODIyNnwxNDYxOTI4NDI5fDY4NzU2fDk2Nzk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_7270" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=7270&amp;handlekey=savephoto_7270">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2016-3-28 23:07 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+</div><div align="left"> </div><div align="left"> </div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">使用的</font> XMLHttpRequest<font face="宋体">对象的</font><font face="Times New Roman">status</font><font face="宋体">属性</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">作用 </font><font face="Times New Roman">- </font><font face="宋体">表示服务器端的状态码</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">判断当前的请求是否成功</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* 200 - <font face="宋体">表示成功</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* 404 - <font face="宋体">网页未找到</font></div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* 500 - <font face="宋体">服务器端的内部错误</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">使用</font> XMLHttpRequest<font face="宋体">对象的</font><font face="Times New Roman">responseText</font><font face="宋体">属性</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;* <font face="宋体">是以字符串类型接收服务器端响应的数据内容</font></div><div align="left">例如<font face="Times New Roman">:GET</font><font face="宋体">方式的</font><font face="Times New Roman">AJAX</font><font face="宋体">异步请求方式</font></div><div class="blockcode"><div id="code_rs4"><ol><li>&lt;!doctype html&gt;<br>
+</li><li>&lt;html lang="en"&gt;<br>
+</li><li> &lt;head&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;title&gt;实现AJAX的步骤&lt;/title&gt;<br>
+</li><li> &lt;/head&gt;<br>
+</li><li> &lt;body&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;input type="button" id="btn" value="异步请求"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;script&gt;<br>
+</li><li>// 获取button按钮,绑定click事件<br>
+</li><li>var btn = document.getElementById("btn");<br>
+</li><li>btn.onclick = function(){// 实现Ajax<br>
+</li><li>/*<br>
+</li><li>&nbsp; &nbsp;1. 创建Ajax的核心对象XMLHttpRequest<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;* 第一个版本XMLHttpRequest对象<br>
+</li><li>&nbsp; &nbsp;* open(type,url,async)方法<br>
+</li><li> * 第二个版本XMLHttpRequest对象<br>
+</li><li>&nbsp; &nbsp;* open(type,url)方法<br>
+</li><li> */<br>
+</li><li>var xhr = getXhr();<br>
+</li><li>/*<br>
+</li><li>&nbsp; &nbsp;2. 与服务器端建立连接<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;open(type,url,async)方法<br>
+</li><li> * type - 表示请求类型(GET或POST)<br>
+</li><li> * url - 表示请求地址<br>
+</li><li> * async - 表示是否异步,Boolean值<br>
+</li><li>&nbsp; &nbsp;* true - 表示异步(默认值)<br>
+</li><li>&nbsp; &nbsp;* false - 表示同步(提示警告)<br>
+</li><li> */<br>
+</li><li>xhr.open("get","01.php?name=guojing&amp;pwd=123456",true);<br>
+</li><li>/*<br>
+</li><li>&nbsp; &nbsp;3. 向服务器端发送请求<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;send(data)方法<br>
+</li><li> * data - 表示请求的数据内容<br>
+</li><li>&nbsp; &nbsp;* 格式 - name=value&amp;name=value&amp;...<br>
+</li><li> 请求类型为GET<br>
+</li><li> * send()方法并不起作用(失效)<br>
+</li><li>&nbsp; &nbsp;* 写成send(null)<br>
+</li><li> * 注意<br>
+</li><li>&nbsp; &nbsp;* 该步骤(方法)不能被省略的<br>
+</li><li>&nbsp; &nbsp;* 请求数据要被添加到URL后面<br>
+</li><li> 请求类型为POST<br>
+</li><li> */<br>
+</li><li>xhr.send(null);<br>
+</li><li>/*<br>
+</li><li>&nbsp; &nbsp;4. 接收服务器端的响应结果<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;a. onreadystatechange事件<br>
+</li><li>&nbsp; &nbsp; * 用于监听服务器端的通信状态(readyState)<br>
+</li><li> b. 判断readyState属性的值<br>
+</li><li>&nbsp; &nbsp; * 值为 4 的时候,才表示响应完毕<br>
+</li><li> c. 判断status属性的值<br>
+</li><li>&nbsp; &nbsp; * 值为 200 OK 的时候,才表示请求正确<br>
+</li><li> d. 利用核心对象的responseText属性<br>
+</li><li>&nbsp; &nbsp; * 接收服务器端响应的字符串类型数据<br>
+</li><li> */<br>
+</li><li>xhr.onreadystatechange = function(){<br>
+</li><li>if(xhr.readyState == 4){<br>
+</li><li>if(xhr.status == 200){<br>
+</li><li>var data = xhr.responseText;<br>
+</li><li>console.log(data);<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>&nbsp; &nbsp;function getXhr(){<br>
+</li><li>var xhr = null;//定义核心对象<br>
+</li><li>if(window.XMLHttpRequest){//其他浏览器<br>
+</li><li>xhr = new XMLHttpRequest();<br>
+</li><li>}else{//IE浏览器<br>
+</li><li>xhr = new ActiveXObject("Microsoft.XMLHttp");<br>
+</li><li>}<br>
+</li><li>return xhr;<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;}<br>
+</li><li>&nbsp;&nbsp;&lt;/script&gt;<br>
+</li><li> &lt;/body&gt;<br>
+</li><li>&lt;/html&gt;</li></ol></div><em onclick="copycode($('code_rs4'));">复制代码</em></div><br>
+<div align="left">下面是<font face="Times New Roman">php</font><font face="宋体">文件</font><font face="Times New Roman">(01.php):</font></div><div class="blockcode"><div id="code_o9j"><ol><li>&lt;?php<br>
+</li><li>// 1. 接收客户端的请求数据<br>
+</li><li>$name = $_GET['name'];<br>
+</li><li>$pwd = $_GET['pwd'];<br>
+</li><li>// 2. 向客户端进行响应数据为字符串类型<br>
+</li><li>echo "$name : $pwd";<br>
+</li><li>?&gt;</li></ol></div><em onclick="copycode($('code_o9j'));">复制代码</em></div><br>
+<div align="left">下面是 点击异步请求后 页面效果：</div><div align="left"> 
+<ignore_js_op>
+
+<img initialized="true" id="aimg_7271" aid="7271" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/69b6659e74ee49be87027ada465db8bb.png" zoomfile="
+http://file.henkuai.com/10006/69b6659e74ee49be87027ada465db8bb.png
+" file="
+http://file.henkuai.com/10006/69b6659e74ee49be87027ada465db8bb.png
+" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" width="423">
+
+<div initialized="true" class="tip tip_4 aimg_tip" id="aimg_7271_menu" style="position: absolute; z-index: 301; left: 341.983px; top: 6277.5px;" disautofocus="true">
+<div class="xs0">
+<p><strong>图片4.png</strong> <em class="xg1">(11 KB, 下载次数: 3)</em></p>
+<p>
+<a href="http://www.henkuai.com/forum.php?mod=attachment&amp;aid=NzI3MXwwZThlOTA3NXwxNDYxOTI4NDI5fDY4NzU2fDk2Nzk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_7271" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=7271&amp;handlekey=savephoto_7271">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2016-3-28 23:09 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+</div><div align="left"> </div><div align="left">下面是POST<font face="宋体">方式异步请求</font><font face="Times New Roman">:</font></div><div class="blockcode"><div id="code_Vde"><ol><li>&lt;!doctype html&gt;<br>
+</li><li>&lt;html lang="en"&gt;<br>
+</li><li> &lt;head&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;title&gt;POST方式的AJAX&lt;/title&gt;<br>
+</li><li> &lt;/head&gt;<br>
+</li><li> &lt;body&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;!--<br>
+</li><li>&nbsp; &nbsp; &lt;form&gt;表单元素 - 具有默认的属性 :enctype="application/x-www-form-urlencoded" <br>
+</li><li>* 提交表单,请求方式为 POST 时,服务器端之所以可以接收请求的数据内容，就是因为enctype属性<br>
+</li><li>&nbsp; &nbsp;&lt;form action="02.php" method="post"&gt;<br>
+</li><li>&lt;input type="text" name="data"&gt;<br>
+</li><li>&lt;input type="submit"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;/form&gt;<br>
+</li><li>&nbsp;&nbsp;--&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;input type="button" id="btn" value="POST方式异步请求"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;script&gt;<br>
+</li><li>var btn = document.getElementById("btn");<br>
+</li><li>btn.onclick = function(){<br>
+</li><li>// 1. 创建XMLHttpRequest对象<br>
+</li><li>var xhr = getXhr();<br>
+</li><li>/*<br>
+</li><li>&nbsp; &nbsp;2. 与服务器端建立连接 - open()方法<br>
+</li><li> * type - 指定为 POST 方式<br>
+</li><li> */<br>
+</li><li>xhr.open("post","02.php");<br>
+</li><li>/*<br>
+</li><li>&nbsp; &nbsp;3. 向服务器端发送请求数据 - send()方法<br>
+</li><li> * 问题 - 请求类型为POST方式时,send()是否有效?默认的确失效的<br>
+</li><li> * 解决 - 需要手动设置请求头<br>
+</li><li>&nbsp; &nbsp;xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");<br>
+</li><li> * 注意<br>
+</li><li>&nbsp; &nbsp;* 必须要在send()方法被调用前,进行设置<br>
+</li><li> */<br>
+</li><li>xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");<br>
+</li><li>xhr.send("user=guojing&amp;pwd=123456");<br>
+</li><li>// 4. 接收服务器端的响应数据<br>
+</li><li>xhr.onreadystatechange = function(){<br>
+</li><li>if(xhr.readyState == 4 &amp;&amp; xhr.status == 200){<br>
+</li><li>var data = xhr.responseText;<br>
+</li><li>console.log(data);<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>&nbsp; &nbsp;function getXhr(){<br>
+</li><li>var xhr = null;//定义核心对象<br>
+</li><li>if(window.XMLHttpRequest){//其他浏览器<br>
+</li><li>xhr = new XMLHttpRequest();<br>
+</li><li>}else{//IE浏览器<br>
+</li><li>xhr = new ActiveXObject("Microsoft.XMLHttp");<br>
+</li><li>}<br>
+</li><li>return xhr;<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;}<br>
+</li><li>&nbsp;&nbsp;&lt;/script&gt;<br>
+</li><li> &lt;/body&gt;<br>
+</li><li>&lt;/html&gt;</li></ol></div><em onclick="copycode($('code_Vde'));">复制代码</em></div><br>
+<div align="left">下面是<font face="Times New Roman">php</font><font face="宋体">文件</font><font face="Times New Roman">(02.php):</font></div><div class="blockcode"><div id="code_KtL"><ol><li>&lt;?php<br>
+</li><li>// 1. 接收客户端的请求数据<br>
+</li><li>$user = $_POST['user'];<br>
+</li><li>$pwd = $_POST['pwd'];<br>
+</li><li>// 2. 向客户端进行响应数据<br>
+</li><li>echo "$user : $pwd";<br>
+</li><li>?&gt;</li></ol></div><em onclick="copycode($('code_KtL'));">复制代码</em></div><br>
+<div align="left">下面是 点击<font face="Times New Roman">POST</font><font face="宋体">方式异步请求后的页面效果：</font></div><div align="left"> 
+<ignore_js_op>
+
+<img initialized="true" id="aimg_7272" aid="7272" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/51bcc80e0bf84862a5c25b095241564a.png" zoomfile="
+http://file.henkuai.com/10006/51bcc80e0bf84862a5c25b095241564a.png
+" file="
+http://file.henkuai.com/10006/51bcc80e0bf84862a5c25b095241564a.png
+" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" width="407">
+
+<div class="tip tip_4 aimg_tip" id="aimg_7272_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>图片5.png</strong> <em class="xg1">(11.58 KB, 下载次数: 2)</em></p>
+<p>
+<a href="http://www.henkuai.com/forum.php?mod=attachment&amp;aid=NzI3MnwyMjg3MDMzZHwxNDYxOTI4NDI5fDY4NzU2fDk2Nzk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_7272" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=7272&amp;handlekey=savephoto_7272">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2016-3-28 23:10 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+</div><div align="left">&nbsp; &nbsp;* AJAX<font face="宋体">的异步交互中的</font><font face="Times New Roman">GET</font><font face="宋体">与</font><font face="Times New Roman">POST</font><font face="宋体">的区别</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* GET<font face="宋体">请求类型</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * open()<font face="宋体">方法设置请求类型为</font><font face="Times New Roman">get</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * send()<font face="宋体">方法是无效的</font><font face="Times New Roman">(</font><font face="宋体">该方法不能省略</font><font face="Times New Roman">)</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">请求数据添加到</font><font face="Times New Roman">URL(</font><font face="宋体">请求地址</font><font face="Times New Roman">)</font><font face="宋体">后面</font></div><div align="left">&nbsp; &nbsp;&nbsp;&nbsp;* POST<font face="宋体">请求类型</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * open()<font face="宋体">方法设置请求类型为</font><font face="Times New Roman">post</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * send()<font face="宋体">方法是有效的</font><font face="Times New Roman">(</font><font face="宋体">提前设置请求头</font><font face="Times New Roman">)</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">请求数据由</font><font face="Times New Roman">send()</font><font face="宋体">方法进行发送</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp; * <font face="宋体">在</font><font face="Times New Roman">send()</font><font face="宋体">方法前</font><font face="Times New Roman">,</font><font face="宋体">设置请求头</font></div><div align="left">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");</div><div align="left"> </div><div align="left"> </div><div align="left">例如：使用<font face="Times New Roman">AJAX</font><font face="宋体">异步请求 实现 省份与对应的城市 的二级联动</font></div><div class="blockcode"><div id="code_Nhv"><ol><li>&lt;!doctype html&gt;<br>
+</li><li>&lt;html lang="en"&gt;<br>
+</li><li> &lt;head&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;title&gt;AJAX实现二级联动&lt;/title&gt;<br>
+</li><li> &lt;/head&gt;<br>
+</li><li> &lt;body&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;fieldset&gt;<br>
+</li><li>&lt;legend&gt;用户注册页面&lt;/legend&gt;<br>
+</li><li>&lt;form&gt;<br>
+</li><li>&lt;table&gt;<br>
+</li><li>&lt;tr&gt;<br>
+</li><li>&lt;td&gt;用户名:&lt;/td&gt;<br>
+</li><li>&lt;td&gt;&lt;input type="text" name="user"&gt;&lt;/td&gt;<br>
+</li><li>&lt;/tr&gt;<br>
+</li><li>&lt;tr&gt;<br>
+</li><li>&lt;td&gt;密码:&lt;/td&gt;<br>
+</li><li>&lt;td&gt;&lt;input type="password" name="pwd"&gt;&lt;/td&gt;<br>
+</li><li>&lt;/tr&gt;<br>
+</li><li>&lt;tr&gt;<br>
+</li><li>&lt;td&gt;确认密码:&lt;/td&gt;<br>
+</li><li>&lt;td&gt;&lt;input type="password" name="repwd"&gt;&lt;/td&gt;<br>
+</li><li>&lt;/tr&gt;<br>
+</li><li>&lt;tr&gt;<br>
+</li><li>&lt;td&gt;Email:&lt;/td&gt;<br>
+</li><li>&lt;td&gt;&lt;input type="email" name="mail"&gt;&lt;/td&gt;<br>
+</li><li>&lt;/tr&gt;<br>
+</li><li>&lt;tr&gt;<br>
+</li><li>&lt;td&gt;籍贯:&lt;/td&gt;<br>
+</li><li>&lt;td&gt;<br>
+</li><li>&lt;select id="province"&gt;<br>
+</li><li>&lt;option&gt;请选择&lt;/option&gt;<br>
+</li><li>&lt;option&gt;湖北省&lt;/option&gt;<br>
+</li><li>&lt;option&gt;湖南省&lt;/option&gt;<br>
+</li><li>&lt;option&gt;河北省&lt;/option&gt;<br>
+</li><li>&lt;/select&gt;<br>
+</li><li>&lt;select id="city"&gt;<br>
+</li><li>&lt;option&gt;请选择&lt;/option&gt;<br>
+</li><li>&lt;/select&gt;<br>
+</li><li>&lt;/td&gt;<br>
+</li><li>&lt;/tr&gt;<br>
+</li><li>&lt;tr&gt;<br>
+</li><li>&lt;td&gt;&lt;/td&gt;<br>
+</li><li>&lt;td&gt;&lt;input type="submit" value="注册"&gt;&lt;/td&gt;<br>
+</li><li>&lt;/tr&gt;<br>
+</li><li>&lt;/table&gt;<br>
+</li><li>&lt;/form&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;/fieldset&gt;<br>
+</li><li>&nbsp;&nbsp;&lt;script&gt;<br>
+</li><li>// 1. 获取省份列表,绑定onchange事件<br>
+</li><li>var provinceElement = document.getElementById("province");<br>
+</li><li>provinceElement.onchange = function(){<br>
+</li><li>// 清空城市列表<br>
+</li><li>var cityElement = document.getElementById("city");<br>
+</li><li>var opts = cityElement.getElementsByTagName("option");<br>
+</li><li>for(var z=1;z&lt;opts.length;z++){<br>
+</li><li>cityElement.removeChild(opts[z]);<br>
+</li><li>z--;<br>
+</li><li>}<br>
+</li><li>// 2. 获取用户选择的省份信息<br>
+</li><li>var provinceValue = provinceElement.value;<br>
+</li><li>if(provinceValue != "请选择"){<br>
+</li><li>// 3. 通过Ajax实现异步请求<br>
+</li><li>var xhr = getXhr();<br>
+</li><li>xhr.open("post","server.php");<br>
+</li><li>xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");<br>
+</li><li>xhr.send("province="+provinceValue);<br>
+</li><li>xhr.onreadystatechange = function(){<br>
+</li><li>if(xhr.readyState == 4 &amp;&amp; xhr.status == 200){<br>
+</li><li>// responseText属性接收的是字符串类型<br>
+</li><li>var data = xhr.responseText;<br>
+</li><li>/*<br>
+</li><li>&nbsp; &nbsp;4. 想办法解析得到的字符串类型数据<br>
+</li><li> * 利用String对象的split()方法进行切割<br>
+</li><li> * 得到一个数组结构<br>
+</li><li> */<br>
+</li><li>var cities = data.split(",");<br>
+</li><li>for(var i=0;i&lt;cities.length;i++){<br>
+</li><li>var cityValue = cities[i];<br>
+</li><li>var option = document.createElement("option");<br>
+</li><li>var textNode = document.createTextNode(cityValue);<br>
+</li><li>option.appendChild(textNode);<br>
+</li><li> <br>
+</li><li>cityElement.appendChild(option);<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li>}<br>
+</li><li> function getXhr(){<br>
+</li><li>var xhr = null;//定义核心对象<br>
+</li><li>if(window.XMLHttpRequest){//其他浏览器<br>
+</li><li>xhr = new XMLHttpRequest();<br>
+</li><li>}else{//IE浏览器<br>
+</li><li>xhr = new ActiveXObject("Microsoft.XMLHttp");<br>
+</li><li>}<br>
+</li><li>return xhr;<br>
+</li><li>&nbsp; &nbsp;&nbsp;&nbsp;}<br>
+</li><li>&nbsp;&nbsp;&lt;/script&gt;<br>
+</li><li> &lt;/body&gt;<br>
+</li><li>&lt;/html&gt;</li></ol></div><em onclick="copycode($('code_Nhv'));">复制代码</em></div><br>
+<div align="left">下面是 <font face="Times New Roman">php</font><font face="宋体">文件</font><font face="Times New Roman">(server.php):</font></div><div class="blockcode"><div id="code_xyp"><ol><li>&lt;?php<br>
+</li><li>// 1. 接收客户端发送的省份信息<br>
+</li><li>$province = $_POST['province'];<br>
+</li><li>// 2. 根据省份信息,提供不同的城市列表信息<br>
+</li><li>switch ($province){<br>
+</li><li>case '湖北省':<br>
+</li><li>echo '武汉市,荆州市,宜昌市,枝江市,黄冈市';<br>
+</li><li>break;<br>
+</li><li>case '湖南省':<br>
+</li><li>echo '长沙市,岳阳市,株洲市,娄底市,临湘市';<br>
+</li><li>break;<br>
+</li><li>case '河北省':<br>
+</li><li>echo '石家庄,保定,沧州,廊坊,霸州';<br>
+</li><li>break;<br>
+</li><li>}<br>
+</li><li>?&gt;</li></ol></div><em onclick="copycode($('code_xyp'));">复制代码</em></div><br>
+<div align="left">下面是页面效果：</div><div align="left">
+<ignore_js_op>
+
+<img initialized="true" id="aimg_7273" aid="7273" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/4c18e06163cf450b944c38d999e7581f.png" zoomfile="
+http://file.henkuai.com/10006/4c18e06163cf450b944c38d999e7581f.png
+" file="
+http://file.henkuai.com/10006/4c18e06163cf450b944c38d999e7581f.png
+" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" width="390">
+
+<div class="tip tip_4 aimg_tip" id="aimg_7273_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>图片6.png</strong> <em class="xg1">(9.94 KB, 下载次数: 2)</em></p>
+<p>
+<a href="http://www.henkuai.com/forum.php?mod=attachment&amp;aid=NzI3M3xkYTBjN2Y1OHwxNDYxOTI4NDI5fDY4NzU2fDk2Nzk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_7273" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=7273&amp;handlekey=savephoto_7273">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2016-3-28 23:11 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+</div><div align="left">
+<ignore_js_op>
+
+<img initialized="true" id="aimg_7274" aid="7274" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/c13a97a9b2134ddcae8609db777956de.png" zoomfile="
+http://file.henkuai.com/10006/c13a97a9b2134ddcae8609db777956de.png
+" file="
+http://file.henkuai.com/10006/c13a97a9b2134ddcae8609db777956de.png
+" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" width="371">
+
+<div class="tip tip_4 aimg_tip" id="aimg_7274_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>图片7.png</strong> <em class="xg1">(10.88 KB, 下载次数: 2)</em></p>
+<p>
+<a href="http://www.henkuai.com/forum.php?mod=attachment&amp;aid=NzI3NHxkOTE5ZGM4MHwxNDYxOTI4NDI5fDY4NzU2fDk2Nzk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+&nbsp;<a href="javascript:;" onclick="showWindow(this.id, this.getAttribute('url'), 'get', 0);" id="savephoto_7274" url="home.php?mod=spacecp&amp;ac=album&amp;op=saveforumphoto&amp;aid=7274&amp;handlekey=savephoto_7274">保存到相册</a>
+
+</p>
+
+<p class="xg1 y">2016-3-28 23:11 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+</div><br>
+</td></tr></tbody></table>
+
+
+<!-- css S -->
+<style type="text/css">
+<!--
+.tianchai_hot_style3 {
+margin-top:10px;
+width:100%;
+clear:both;
+}
+.tianchai_hot_style3 a {
+  text-decoration: none;
+  color: #339933;
+}
+
+.tianchai_hot_style3 a:hover {
+  text-decoration: underline;
+}
+
+.tianchai_hot_style3 a img {
+  border: none;
+}
+
+.tianchai_hot_style3 td, p {
+font-family: Lucida Grande, Geneva, Verdana, Arial;
+font-size:   12px;
+}
+.tianchai_hot_style3 .left_box{ float:left; margin:5px 0 2px 8px; padding:0; width:48%;}
+.tianchai_hot_style3 .right_box{ float:left; margin:5px 8px 2px 5px; padding:0; width:48%;}
+.tianchai_hot_style3 li{line-height:20px;}
+
+
+-->
+</style>
+<!-- css E -->
+
+ 
+ 
+
+
+<div class="tianchai_hot_style3">
+<fieldset style="border:1px dashed #aaa; padding:10px; border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px; ">
+<div class="left_box">
+                    	<div style="width:95%; height:20px;">
+<font style="font-size:14px; color:#993333; "><strong>楼主新帖</strong></font>
+                    	</div>
+<ul style="margin-top:5px;">
+<li><a href="http://www.henkuai.com/thread-9715-1-1.html" target="_blank" title="XML and JSON">XML and JSON</a></li>
+<li><a href="http://www.henkuai.com/thread-9682-1-1.html" target="_blank" title="Jquery中的Ajax">Jquery中的Ajax</a></li>
+<li><a href="http://www.henkuai.com/thread-9450-1-1.html" target="_blank" title="web Workers、web存储API、web Socket">web Workers、web存储API、web Socket</a></li>
+<li><a href="http://www.henkuai.com/thread-9430-1-1.html" target="_blank" title="svg - 特效元素">svg - 特效元素</a></li>
+<li><a href="http://www.henkuai.com/thread-9318-1-1.html" target="_blank" title="svg - 基本图形">svg - 基本图形</a></li>
+
+</ul>
+</div>
+
+<div class="right_box">
+                    	<div style="width:95%; height:20px;">
+<font style="font-size:14px;  color:#993333;"><strong>楼主热帖</strong></font>
+                        </div>
+<ul style="margin-top:5px;">
+<li><a href="http://www.henkuai.com/thread-5473-1-1.html" target="_blank" title="html基础学习">html基础学习</a></li>
+<li><a href="http://www.henkuai.com/thread-5516-1-1.html" target="_blank" title="html学习">html学习</a></li>
+<li><a href="http://www.henkuai.com/thread-5593-1-1.html" target="_blank" title="css基础选择器中伪类选择器">css基础选择器中伪类选择器</a></li>
+<li><a href="http://www.henkuai.com/thread-5471-1-1.html" target="_blank" title="html入门（一）">html入门（一）</a></li>
+<li><a href="http://www.henkuai.com/thread-8717-1-1.html" target="_blank" title="h5 - 音频">h5 - 音频</a></li>
+
+</ul>
+</div>
+</fieldset>
+</div>
+
+
+
+<div style="margin-bottom:10px; clear:both;"></div>
+
+
+            
+
+</div>
+<div id="comment_41064" class="cm">
+</div>
+
+<div id="post_rate_div_41064"></div>
+</div></div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div id="p_btn" class="mtw mbm hm cl">
+<div class="tshare cl">
+<b>分享到:&nbsp;</b>
+
+
+<a href="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=plugin&amp;id=qqconnect:spacecp&amp;pluginop=share&amp;sh_type=4&amp;thread_id=9679" id="k_share_to_qq" title="QQ好友和群" target="_blank"><i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/qq_share.png" alt="QQ好友和群">QQ好友和群</i></a>
+<a href="javascript:void(0);" ref="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=plugin&amp;id=qqconnect:spacecp&amp;pluginop=share&amp;sh_type=2&amp;thread_id=9679" id="k_weiboshare" title="腾讯微博"><i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/weibo.png" alt="腾讯微博">腾讯微博</i></a>
+<a href="javascript:void(0);" ref="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=plugin&amp;id=qqconnect:spacecp&amp;pluginop=share&amp;sh_type=3&amp;thread_id=9679" id="k_pengyoushare" title="QQ空间"><i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/qzone.gif" alt="QQ空间">QQ空间</i></a>
+<script type="text/javascript">
+var _is_oauth_user = true;
+var _is_share_token_outofdate = false;
+var _is_feed_auth = true;
+var _share_buttons = ['k_weiboshare', 'k_pengyoushare'];
+function connect_share_init() {
+for (var i = 0; i < _share_buttons.length; i++) {
+$(_share_buttons[i]).onclick = function () {
+connect_share_form(this);
+return false;
+}
+}
+}
+function connect_share_form(obj) {
+if (_is_oauth_user && _is_feed_auth) {
+var _url = obj.getAttribute('ref');
+showWindow(obj.id, _url, 'get', 1);
+} else {
+if (_is_share_token_outofdate) {
+var _text = '为了您的账号安全，请使用QQ帐号重新登录，将为您升级帐号安全机制<br/><br/>点击<a href="http://www.henkuai.com/connect.php?mod=login&op=init&referer=forum.php%3Fmod%3Dviewthread%26tid%3D9679%26extra%3Dpage%253D1%26page%3D1"><img src="static/image/common/qq_login.gif" class="vm" alt="QQ登录" /></a>页面将发生跳转';
+var _button = '我知道了';
+showDialog(_text, 'notice', null, null, 0, null, null, _button);
+} else if (!_is_oauth_user) {
+var _text = '很抱歉，由于分享功能升级，您需要使用QQ帐号重新登录本站，即可马上体验全新的分享到QQ空间、腾讯微博和腾讯朋友功能。<br /><span style="font-size: 12px;">提示：点击<a href="member.php?mod=logging&amp;action=logout&amp;formhash=e49bbeea" class="xi2">这里退出</a>后，重新使用QQ账号登录。</span>';
+var _button = '我知道了';
+showDialog(_text, 'notice', null, 'connect_goto_setting()', 0, null, null, _button);
+} else if (!_is_feed_auth) {
+var _title = '授权提示';
+var _text = '独乐乐不如众乐乐，马上完善授权，您将可以把本站精彩内容分享到QQ空间、腾讯微博和腾讯朋友，跟大家分享每个精彩瞬间。';
+var _button = '修改授权';
+showDialog(_text, 'notice', _title, 'connect_goto_setting()', 0, null, null, _button);
+}
+}
+}
+function connect_goto_setting() {
+if (_is_oauth_user) {
+var _url = "http://www.henkuai.com/home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp";
+hideMenu('fwin_dialog', 'dialog');
+var _newWindow = window.open(_url, 'newWindow');
+_newWindow.focus();
+} else {
+hideMenu('fwin_dialog', 'dialog');
+}
+}
+_attachEvent(window, 'load', function(){
+connect_share_init();
+});
+</script>
+	
+
+
+<a href="javascript:;" onclick="showWindow('wechat_share', 'plugin.php?id=wechat:qrcode&amp;threadqr=9679&amp;access=yes&amp;share=yes')"><i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/share.png" alt="微信">微信</i></a>
+
+
+
+</div>
+
+<a href="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=9679" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖"><i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/fav.gif" alt="收藏">收藏<span id="favoritenumber" style="display:none">0</span></i></a>
+<a id="recommend_add" href="http://www.henkuai.com/forum.php?mod=misc&amp;action=recommend&amp;do=add&amp;tid=9679&amp;hash=e49bbeea" onclick="ajaxmenu(this, 3000, 1, 0, '43', 'recommendupdate(1)');return false;" onmouseover="this.title = $('recommendv_add').innerHTML + ' 人支持小微'" title="顶一下"><i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/rec_add.gif" alt="支持小微">支持小微<span id="recommendv_add" style="display:none">0</span></i></a>
+<a id="recommend_subtract" href="http://www.henkuai.com/forum.php?mod=misc&amp;action=recommend&amp;do=subtract&amp;tid=9679&amp;hash=e49bbeea" onclick="ajaxmenu(this, 3000, 1, 0, '43', 'recommendupdate(-1)');return false;" onmouseover="this.title = $('recommendv_subtract').innerHTML + ' 人反对小微'" title="踩一下"><i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/rec_subtract.gif" alt="反对小微">反对小微<span id="recommendv_subtract" style="display:none">0</span></i></a>
+
+<a href="http://www.henkuai.com/plugin.php?id=huoniao_dashang&amp;a=run&amp;fid=37&amp;tid=9679" id="k_reward" onclick="showWindow(this.id, this.href, 'get', 0);" title="0人打赏">
+<i><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/dashang.png" alt="打赏楼主">
+打赏
+<span id="rewardnumber" style="display:">(0)</span>
+</i>
+</a>
+</div>
+</td>
+</tr>
+<tr id="_postposition41064"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="cmmnt" href="http://www.henkuai.com/forum.php?mod=misc&amp;action=comment&amp;tid=9679&amp;pid=41064&amp;extra=page%3D1&amp;page=1" onclick="showWindow('comment', this.href, 'get', 0)">点评</a><a class="fastre" href="http://www.henkuai.com/forum.php?mod=post&amp;action=reply&amp;fid=37&amp;tid=9679&amp;reppost=41064&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a style="display: none;" href="javascript:;" id="mgc_post_41064" onmouseover="showMenu(this.id)" class="showmenu"></a>
+<a href="javascript:;" onclick="showWindow('miscreport41064', 'misc.php?mod=report&amp;rtype=post&amp;rid=41064&amp;tid=9679&amp;fid=37', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_41064_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_41064')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript" reload="1">
+aimgcount[41064] = ['7268','7269','7270','7271','7272','7273','7274'];
+attachimggroup(41064);
+attachimgshow(41064);
+var aimgfid = 0;
+</script>
+  </div>
+</div><div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table bus_viewthread_br" style="display: none"></div></div>
+</div>
+
+<div class="xi2 mbm pbm bbs">
+<script type="text/javascript">
+$('modmenu').lastChild.style.visibility = 'hidden';
+document.write($('modmenu').innerHTML);
+</script><a href="http://www.henkuai.com/portal.php?mod=portalcp&amp;ac=article&amp;from_idtype=tid&amp;from_id=9679">生成文章</a><span style="visibility: hidden;" class="pipe">|</span>
+</div>
+
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input name="formhash" value="e49bbeea" type="hidden">
+<input name="optgroup" type="hidden">
+<input name="operation" type="hidden">
+<input name="listextra" value="page%3D1" type="hidden">
+<input name="page" value="1" type="hidden">
+</form>
+
+
+
+<div class="pgs mtm mbm cl">
+<span class="pgb y" id="visitedforumstmp" onmouseover="$('visitedforums').id = 'visitedforumstmp';this.id = 'visitedforums';showMenu({'ctrlid':this.id,'pos':'21'})"><a href="http://www.henkuai.com/forum-37-1.html">返回列表</a></span>
+<a id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=37')" href="javascript:;" title="发新帖"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/pn_post.png" alt="发新帖"></a>
+<a id="post_replytmp" onclick="showWindow('reply', 'forum.php?mod=post&amp;action=reply&amp;fid=37&amp;tid=9679')" href="javascript:;" title="回复"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/pn_reply.png" alt="回复"></a>
+</div>
+
+<!--[diy=diyfastposttop]--><div id="diyfastposttop" class="area"></div><!--[/diy]-->
+<script type="text/javascript">
+var postminchars = parseInt('10');
+var postmaxchars = parseInt('1000000000');
+var disablepostctrl = parseInt('0');
+</script>
+
+<div id="f_pst" class="pl bm bmw bus_viewthread_br">
+<form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=37&amp;tid=9679&amp;extra=page%3D1&amp;replysubmit=yes&amp;infloat=yes&amp;handlekey=fastpost" onsubmit="return fastpostvalidate(this)">
+<table cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td class="pls">
+<div class="avatar avtm"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/4_avatar_small.jpg" onerror="this.onerror=null;this.src='source/plugin/freeaddon_randomavatar/images/4_avatar_small.jpg'"></div></td>
+<td class="plc">
+    <script type="text/javascript">
+        function move_geetest_before_submit() {
+            var gt_submitBtn = $('fastpostsubmit');
+            var geetest = $('gt_viewthread_fastpost_content');
+            gt_submitBtn.parentNode.insertBefore(geetest, gt_submitBtn);
+            //_attachEvent(gt_submitBtn, 'click', GeeTestWidget.call_refresh);
+        }
+
+        _attachEvent(window, 'load', move_geetest_before_submit);
+
+
+        function get_button(){
+            var b = [];
+            var buttons = document.getElementsByTagName("button")
+            for(var i=0; i<buttons.length; i++){
+                var button = buttons[i];
+                if(button.type == "submit"){
+                    b.push(button)
+                }
+            }   
+            return b;           
+        }
+        
+
+        window.gt_custom_ajax = function (status, $) {
+            function refresh(){
+                console.log("click");
+                setTimeout(function(){
+                    $(".gt_refresh_button").click();
+                },1000);
+            }
+            if(status) {
+              var buttons = get_button();
+              for(var i in buttons){
+                _attachEvent(buttons[i], 'click', refresh);
+              }
+              
+            }
+         }
+     </script>
+<span id="fastpostreturn"></span>
+
+
+<div class="cl">
+<div id="fastsmiliesdiv" class="y"><div id="fastsmiliesdiv_data"><div id="fastsmilies"><table cellpadding="0" cellspacing="0"><tbody><tr></tr><tr><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':)')" id="fastpostsmilie_1_td"><img id="smilie_1" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/smile.gif" alt=":)" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':(')" id="fastpostsmilie_2_td"><img id="smilie_2" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/sad.gif" alt=":(" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':D')" id="fastpostsmilie_3_td"><img id="smilie_3" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/biggrin.gif" alt=":D" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':\'(')" id="fastpostsmilie_4_td"><img id="smilie_4" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/cry.gif" alt=":'(" height="20" width="20"></td></tr><tr><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':@')" id="fastpostsmilie_5_td"><img id="smilie_5" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/huffy.gif" alt=":@" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':o')" id="fastpostsmilie_6_td"><img id="smilie_6" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/shocked.gif" alt=":o" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':P')" id="fastpostsmilie_7_td"><img id="smilie_7" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/tongue.gif" alt=":P" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':$')" id="fastpostsmilie_8_td"><img id="smilie_8" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/shy.gif" alt=":$" height="20" width="20"></td></tr><tr><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ';P')" id="fastpostsmilie_9_td"><img id="smilie_9" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/titter.gif" alt=";P" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':L')" id="fastpostsmilie_10_td"><img id="smilie_10" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/sweat.gif" alt=":L" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':Q')" id="fastpostsmilie_11_td"><img id="smilie_11" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/mad.gif" alt=":Q" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':lol')" id="fastpostsmilie_12_td"><img id="smilie_12" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/lol.gif" alt=":lol" height="20" width="20"></td></tr><tr><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':loveliness:')" id="fastpostsmilie_13_td"><img id="smilie_13" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/loveliness.gif" alt=":loveliness:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':funk:')" id="fastpostsmilie_14_td"><img id="smilie_14" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/funk.gif" alt=":funk:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':curse:')" id="fastpostsmilie_15_td"><img id="smilie_15" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/curse.gif" alt=":curse:" height="20" width="20"></td><td onmouseover="smilies_preview('fastpost', 'fastsmiliesdiv', this, 20)" onmouseout="$('smilies_preview').style.display = 'none'" onclick="seditor_insertunit('fastpost', ':dizzy:')" id="fastpostsmilie_16_td"><img id="smilie_16" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/dizzy.gif" alt=":dizzy:" height="20" width="20"></td></tr></tbody></table></div></div></div><div class="hasfsl" id="fastposteditor">
+<div class="tedt mtn">
+<div class="bar">
+<span class="y">
+<a href="http://www.henkuai.com/forum.php?mod=post&amp;action=reply&amp;fid=37&amp;tid=9679" onclick="return switchAdvanceMode(this.href)">高级模式</a>
+</span><script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/seditor.js" type="text/javascript"></script>
+<div class="fpd">
+<a href="javascript:;" title="文字加粗" class="fbld" onclick="seditor_insertunit('fastpost', '[b]', '[/b]');doane(event);">B</a>
+<a href="javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor" onclick="showColorBox(this.id, 2, 'fastpost');doane(event);">Color</a>
+<a id="fastpostimg" href="javascript:;" title="图片" class="fmg" onclick="seditor_menu('fastpost', 'img');doane(event);">Image</a>
+<a id="fastposturl" href="javascript:;" title="添加链接" class="flnk" onclick="seditor_menu('fastpost', 'url');doane(event);">Link</a>
+<a id="fastpostquote" href="javascript:;" title="引用" class="fqt" onclick="seditor_menu('fastpost', 'quote');doane(event);">Quote</a>
+<a id="fastpostcode" href="javascript:;" title="代码" class="fcd" onclick="seditor_menu('fastpost', 'code');doane(event);">Code</a>
+<a href="javascript:;" class="fsml" id="fastpostsml" onclick="showMenu({'ctrlid':this.id,'evt':'click','layer':2});return false;">Smilies</a>
+<script type="text/javascript" reload="1">smilies_show('fastpostsmiliesdiv', 8, 'fastpost');</script>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/at.js" type="text/javascript"></script>
+<a id="fastpostat" href="javascript:;" title="@朋友" class="fat" onclick="seditor_menu('fastpost', 'at');doane(event);">@朋友</a>
+<span class="pipe z">|</span><object id="SWFUpload_0" type="application/x-shockwave-flash" data="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/swfupload.swf" class="swfupload" height="25" width="17"><param name="wmode" value="transparent"><param name="movie" value="static/image/common/swfupload.swf?preventswfcaching=1461928424307"><param name="quality" value="high"><param name="allowScriptAccess" value="always"><param name="flashvars" value="movieName=SWFUpload_0&amp;uploadURL=http%3A%2F%2Fwww.henkuai.com%2Fmisc.php%3Fmod%3Dswfupload%26action%3Dswfupload%26operation%3Dupload%26fid%3D37&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=&amp;assumeSuccessTimeout=0&amp;params=uid%3D68756%26amp%3Bhash%3De6fb625e8dc4401d16679fbcc369f0b1&amp;filePostName=Filedata&amp;fileTypes=*.chm%3B*.pdf%3B*.zip%3B*.rar%3B*.tar%3B*.gz%3B*.bzip2%3B*.gif%3B*.jpg%3B*.jpeg%3B*.png&amp;fileTypesDescription=All%20Support%20Formats&amp;fileSizeLimit=2097152&amp;fileUploadLimit=0&amp;fileQueueLimit=0&amp;debugEnabled=false&amp;buttonImageURL=%2Fstatic%2Fimage%2Fcommon%2Fuploadbutton_small.png&amp;buttonWidth=17&amp;buttonHeight=25&amp;buttonText=&amp;buttonTextTopPadding=0&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=color%3A%20%23000000%3B%20font-size%3A%2016pt%3B&amp;buttonAction=-110&amp;buttonDisabled=false&amp;buttonCursor=-2"></object></div></div>
+<div class="area">
+<textarea rows="6" cols="80" name="message" id="fastpostmessage" onkeydown="seditor_ctlent(event, 'fastpostvalidate($(\'fastpostform\'))');" tabindex="4" class="pt"></textarea>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var editorid = '';
+var ATTACHNUM = {'imageused':0,'imageunused':0,'attachused':0,'attachunused':0}, ATTACHUNUSEDAID = new Array(), IMGUNUSEDAID = new Array();
+</script>
+
+<input name="posttime" id="posttime" value="1461928429" type="hidden">
+<div class="upfl hasfsl">
+<table id="attach_tblheader" style="display: none;" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td>点击附件文件名添加到帖子内容中</td>
+<td class="atds">描述</td>
+<td class="attv">
+阅读权限
+<img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/faq.gif" alt="Tip" class="vm" onmouseover="showTip(this)" tip="阅读权限按由高到低排列，高于或等于选中组的用户才可以阅读">
+</td>
+<td class="attpr">微币</td><td class="attc"></td>
+</tr>
+</tbody></table>
+<div class="fieldset flash" id="attachlist"></div>
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/upload.js" type="text/javascript"></script><script type="text/javascript">
+var upload = new SWFUpload({
+upload_url: "http://www.henkuai.com/misc.php?mod=swfupload&action=swfupload&operation=upload&fid=37",
+post_params: {"uid" : "68756", "hash":"e6fb625e8dc4401d16679fbcc369f0b1"},
+file_size_limit : "2097152",
+file_types : "*.chm;*.pdf;*.zip;*.rar;*.tar;*.gz;*.bzip2;*.gif;*.jpg;*.jpeg;*.png",
+file_types_description : "All Support Formats",
+file_upload_limit : 0,
+file_queue_limit : 0,
+swfupload_preload_handler : preLoad,
+swfupload_load_failed_handler : loadFailed,
+file_dialog_start_handler : fileDialogStart,
+file_queued_handler : fileQueued,
+file_queue_error_handler : fileQueueError,
+file_dialog_complete_handler : fileDialogComplete,
+upload_start_handler : uploadStart,
+upload_progress_handler : uploadProgress,
+upload_error_handler : uploadError,
+upload_success_handler : uploadSuccess,
+upload_complete_handler : uploadComplete,
+button_image_url : "static/image/common/uploadbutton_small.png",
+button_placeholder_id : "spanButtonPlaceholder",
+button_width: 17,
+button_height: 25,
+button_cursor:SWFUpload.CURSOR.HAND,
+button_window_mode: "transparent",
+custom_settings : {
+progressTarget : "attachlist",
+uploadSource: 'forum',
+uploadType: 'attach',
+uploadFrom: 'fastpost'
+},
+debug: false
+});
+</script>
+</div>
+
+<input name="formhash" value="e49bbeea" type="hidden">
+<input name="usesig" value="1" type="hidden">
+<input name="subject" value="  " type="hidden">
+<p class="ptm pnpost">
+<a href="http://www.henkuai.com/home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=37" class="y" target="_blank">本版积分规则</a>
+<div id="gt_viewthread_fastpost_content" class="" style="margin:10px  0px 10px  0px "><table><tbody><tr><th style="width:80px;"><div id="gt_tx">*滑动验证:</div></th><td><script type="text/javascript" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/get.php"></script><div class="gt_holder float zh-cn" id="geetest_1461928430617"><div class="gt_widget gt_hide"><div class="gt_holder_top"></div><div style="height: 90px;" class="gt_box_holder"><div class="gt_box"><div class="gt_loading"></div><a style="background-image: url(&quot;http://static.geetest.com/pictures/gt/8d1b56a8/bg/c6288d2e.jpg&quot;);" class="gt_bg gt_show"><div class="gt_cut_bg gt_hide"></div><div style="transform: translate(0px, 0px); background-image: url(&quot;http://static.geetest.com/pictures/gt/8d1b56a8/slice/c6288d2e.png&quot;); width: 48px; height: 64px; left: 0px; top: 14px;" class="gt_slice gt_show"></div></a><a style="cursor: default; background-image: url(&quot;http://static.geetest.com/pictures/gt/8d1b56a8/8d1b56a8.jpg&quot;);" class="gt_fullbg gt_show"><div class="gt_cut_fullbg gt_hide"></div><div style="height: 68px;" class="gt_flash"></div><div class="gt_ie_success"></div></a><a style="background-image: none;" class="gt_curtain gt_hide"><div class="gt_curtain_bg_wrap"><div class="gt_curtain_bg"><div class="gt_cut_curtain"></div></div></div><div class="gt_curtain_button gt_hide"></div></a><a style="display: none;" class="gt_box_tips"></a></div><div class="gt_info"><div class="gt_info_tip"><div class="gt_info_icon"></div><div class="gt_info_text"></div></div></div></div><div class="gt_bottom"><a class="gt_refresh_button"><div class="gt_refresh_tips">刷新验证</div></a><a target="_blank" href="http://www.geetest.com/contact#report" class="gt_help_button"><div class="gt_help_tips">帮助反馈</div></a><a target="_blank" href="http://www.geetest.com/" class="gt_logo_button"></a></div></div><div class="gt_input"><input name="geetest_challenge" class="geetest_challenge" type="hidden"><input name="geetest_validate" class="geetest_validate" type="hidden"><input name="geetest_seccode" class="geetest_seccode" type="hidden"></div><div class="gt_slider"><div class="gt_guide_tip gt_show">按住左边滑块，拖动完成上方拼图</div><div style="transform: translate(0px, 0px);" class="gt_slider_knob gt_show"></div><div class="gt_curtain_tip gt_hide">点击上图按钮并沿道路拖动到终点处</div><div class="gt_curtain_knob gt_hide">移动到此开始验证</div><div class="gt_ajax_tip ready"></div></div></div></td></tr></tbody></table></div><button type="submit" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button>
+将此回复同步到
+
+<script type="text/javascript">
+//var _allow_qq = false;
+var _allow_t = true;
+//var _syn_qq = false;
+var _syn_t = false;
+var _is_oauth_user = true;
+var _is_feed_auth = true;
+var _is_token_outofdate = false;
+function connect_post_init() {
+//			if (_allow_qq && _syn_qq) {
+//				if (_is_feed_auth && !_is_token_outofdate) {
+//					$('connectPost_synQQ').className = 'syn_qq_check';
+//					$('connectPost_synQQ').title = '已设置同步至QQ空间';
+//					$('connect_publish_feed').value = 1;
+//				} else {
+//					$('connectPost_synQQ').className = 'syn_qq';
+//					$('connectPost_synQQ').title = '未设置同步至QQ空间';
+//					$('connect_publish_feed').value = 0;
+//				}
+//			}
+
+if (_allow_t && _syn_t) {
+if (_is_feed_auth && !_is_token_outofdate) {
+$('connectPost_synT').className = 'syn_tqq_check';
+$('connectPost_synT').title = '已设置同步至腾讯微博';
+$('connect_publish_t').value = 1;
+} else {
+$('connectPost_synT').className = 'syn_tqq';
+$('connectPost_synT').title = '未设置同步至腾讯微博';
+$('connect_publish_t').value = 0;
+}
+}
+
+//			if (_allow_qq) {
+//				$('connectPost_synQQ').onclick = function () {
+//					connect_syn_option_toggle(this);
+//				}
+//			}
+if (_allow_t) {
+$('connectPost_synT').onclick = function () {
+connect_syn_option_toggle(this);
+}
+}
+if (getcookie('connect_synpost_tip')) {
+connect_post_tip();
+}
+}
+function connect_syn_option_toggle(opt) {
+if (_is_feed_auth && !_is_token_outofdate) {
+if ($(opt.getAttribute('rel')).value == 1) {
+opt.className = opt.className.replace('_check', '');
+opt.title = opt.title.replace('已', '未');
+$(opt.getAttribute('rel')).value = 0;
+} else {
+$(opt.getAttribute('rel')).value = 1;
+opt.className += '_check';
+opt.title = opt.title.replace('未', '已');
+}
+} else {
+var _auth_text = '马上完善授权，您将可以发表主题时同步到QQ空间和腾讯微博，第一时间和大家分享您在论坛中的新鲜事儿。';
+if (_is_token_outofdate) {
+_auth_text = '为了您的账号安全，请使用QQ帐号重新登录，将为您升级帐号安全机制<br/><br/>点击<a href="http://www.henkuai.com/connect.php?mod=login&op=init&referer=forum.php%3Fmod%3Dviewthread%26tid%3D9679%26extra%3Dpage%253D1%26page%3D1"><img src="static/image/common/qq_login.gif" class="vm" alt="QQ登录" /></a>页面将发生跳转，请确保您已保存好帖子数据';
+var _button = '我知道了';
+showDialog(_auth_text, 'notice', null, null, 0, null, null, _button);
+return;
+} else if (!_is_oauth_user) {
+_auth_text = '马上绑定QQ账号，您将可以发表主题时同步到QQ空间和腾讯微博，第一时间和大家分享您在论坛中的新鲜事儿。';
+}
+showDialog(_auth_text, 'notice', '授权提示', 'connect_goto_setting()', 0, null, null, '修改授权');
+}
+}
+function connect_post_tip() {
+if ($('fastpostform')) {
+return;
+}
+if (_is_token_outofdate) {
+if ($('synnotice')) {
+$('synnotice').style.display = 'none';
+}
+return;
+}
+var r = document.getElementById('rstnotice');
+var c = document.createElement('div');
+c.setAttribute('id', 'synnotice');
+c.setAttribute('class', 'ntc_l bbs');
+if(BROWSER.ie) {
+c.id = 'synnotice';
+c.className = 'ntc_l bbs';
+}
+c.style.display = 'block';
+r.parentNode.insertBefore(c, r.nextSibling);
+c.innerHTML = '<a href="javascript:void(0);" title="关闭同步发帖提示" class="d y" onclick="connect_syn_tip_hide();">close</a>此主题将同步到腾讯微博，您的听众能够看到您发表的主题。&nbsp;&nbsp;<a class="xi2" href="javascript:void(0);" onclick="connect_syn_cancel();" title="取消发表主题时同步到腾讯微博，将来您可以到“设置-QQ绑定”页面重新设置。"><strong>暂不同步</strong></a>';
+}
+function connect_syn_tip_hide() {
+setcookie('connect_synpost_tip', '', '-1');
+$('synnotice').style.display = 'none';
+}
+function connect_syn_cancel() {
+ajaxget('http://www.henkuai.com/connect.php?mod=config&op=synconfig', '');
+//			$('connectPost_synQQ').className = 'syn_qq';
+//			$('connectPost_synQQ').title = '未设置同步至QQ空间';
+//			$('connect_publish_feed').value = 0;
+$('connectPost_synT').className = 'syn_tqq';
+$('connectPost_synT').title = '未设置同步至腾讯微博';
+$('connect_publish_t').value = 0;
+$('synnotice').style.display = 'none';
+}
+function connect_goto_setting() {
+var _url = "http://www.henkuai.com/home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp";
+hideMenu('fwin_dialog', 'dialog')
+var _newWindow = window.open(_url, 'newWindow');
+_newWindow.focus();
+}
+_attachEvent(window, 'load', function(){
+connect_post_init();
+});
+</script>
+
+<a title="未设置同步至腾讯微博" class="syn_tqq" href="javascript:void(0);" id="connectPost_synT" rel="connect_publish_t">腾讯微博</a>
+<input name="connect_publish_t" id="connect_publish_t" value="0" type="hidden">
+
+ | <label for="fastpostrefresh"><input id="fastpostrefresh" class="pc" type="checkbox">回帖后跳转到最后一页</label>
+<script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script>
+</p>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+
+<script type="text/javascript">
+var connect_qzone_share_url = '';
+var connect_weibo_share_url = '';
+var connect_thread_info = {
+thread_url: 'http://www.henkuai.com/thread-9679-1-1.html',
+thread_id: '9679',
+post_id: '',
+forum_id: '37',
+author_id: '',
+author: ''
+};
+
+connect_autoshare = '';
+connect_isbind = '1';
+if(connect_autoshare == 1 && connect_isbind) {
+_attachEvent(window, 'load', function(){
+connect_share(connect_weibo_share_url, connect_openid);
+});
+}
+</script>
+
+<div id="connect_share_unbind" style="display: none;">
+<div class="c hm">
+<div style="font-size:14px; margin:10px 0;">绑定QQ帐号，轻松分享到QQ空间与腾讯微博</div>
+<div><a href="http://www.henkuai.com/connect.php?mod=config&amp;connect_autoshare=1" target="_blank"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/qq_bind.gif" style="margin-top:5px;" align="absmiddle"></a></div>
+</div>
+<input id="connect_thread_title" name="connect_thread_title" value="js原生Ajax" type="hidden">
+</div>
+
+
+<div id="visitedforums_menu" class="p_pop blk cl" style="display: none;">
+<table cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td id="v_forums">
+<h3 class="mbn pbn bbda xg1">浏览过的版块</h3>
+<ul class="xl xl1">
+<li><a href="http://www.henkuai.com/forum-59-1.html">视频教程</a></li><li><a href="http://www.henkuai.com/forum-2-1.html">微信公众号开发</a></li></ul>
+</td>
+</tr>
+</tbody></table>
+</div>
+<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 0, 0, 'forum.php?mod=viewthread&tid=9679', 1);}</script>
+
+  </div><!--bus_forum end-->
+<a class="bus_arrows prev" href="http://www.henkuai.com/forum.php?mod=redirect&amp;goto=nextoldset&amp;tid=9679" title="上一主题">上一主题</a>
+<a class="bus_arrows next" href="http://www.henkuai.com/forum.php?mod=redirect&amp;goto=nextnewset&amp;tid=9679" title="下一主题">下一主题</a>
+
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+
+<script type="text/javascript">
+function succeedhandle_followmod(url, msg, values) {
+var fObj = $('followmod_'+values['fuid']);
+if(values['type'] == 'add') {
+fObj.innerHTML = '不收听';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+} else if(values['type'] == 'del') {
+fObj.innerHTML = '收听TA';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash=e49bbeea&fuid='+values['fuid'];
+}
+}
+fixed_avatar([41064], 1);
+</script>
+</div><!-- Mobanbus END bus_bd98 -->
+
+<div class="clear"></div>
+<script>fixed_top_nv();</script>
+
+
+<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/qshare.js" type="text/javascript"></script><script type="text/javascript">_share_tencent_weibo(null, $C("t_f", null, "td"), "", "ce7fb946290e4109bdc9175108b6db3a", "微信开发者平台");</script>
+
+
+
+<div class="row pb50 bus_indexbg"><span class="bus_indexbg_col s02"></span>
+<div class="bus_lxwm bus_relative">
+<div class="mobanbus">
+<div class="row_t mb50">
+  <p align="center"><span style="color:white;font-size:20px;"><b>henkuai.com是专业的第三方微信开发者平台，为生态而生。</b></span></p>
+      <br><p>本站为第三方微信开发者平台，非腾讯官方网站。</p>
+</div>
+<div class="bus_col_4 about_new">
+<img alt="" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/adress-icon.png" style="float:left;" width="60">
+<div>
+<p class="about-p1">天津市滨海新区<br>中新生态城中成大道生态建设公寓9号楼3层301 </p>
+<p class="about-p2">欢迎来这里一起喝喝茶，<br>聊聊你的产品。</p>
+</div>
+</div>
+<div class="bus_col_4 about_new">
+<img alt="" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/call-icon.png" style="float:left;" width="60">
+<div>
+<p class="about-p1">微信公众号：gongzhongkaifa<br></p>
+<p class="about-p2">工作日12小时内回复。</p>
+</div>
+</div>
+<div class="bus_col_4 about_new">
+<img alt="" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/mail-icon.png" style="float:left;" width="60">
+<div>
+<p class="about-p1">合作洽谈<br>songchang@henkuai.com</p>
+<p class="about-p2">工作日12小时内回复。</p>
+</div>
+</div>
+<div class="bus_col_4 about_new">
+<img alt="" src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/join-us.png" style="float:left;" width="60">
+<div>
+<p class="about-p1">加入我们<br>songchang@henkuai.com</p>
+<p class="about-p2">PHP程序猿、前端程序猿、产品经理<br>北京地区急聘</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+
+<div id="bus_foot">
+<div class="mobanbus">
+  <div class="container1">
+    <div class="col bus_gy">
+      <ul class="footer-content">
+
+        <a href="http://www.henkuai.com/about.php" target="_blank">关于我们 |</a>
+        <a href="http://henkuai.com/home.php?mod=spacecp&amp;ac=credit&amp;op=buy" target="_blank"> 充值微币 |</a>
+        <a href="javascript:;" onclick="showWindow('miscreport', 'misc.php?mod=report&amp;url='+REPORTURL);return false;">举报</a> - <a href="http://www.henkuai.com/archiver/">Archiver</a> - <a href="http://www.henkuai.com/forum.php?mobile=yes">手机版</a> - <a href="http://www.henkuai.com/forum.php?mod=misc&amp;action=showdarkroom">小黑屋</a> -             <strong><a href="http://www.henkuai.com/" target="_blank">很快微信开发者平台</a></strong>
+        ( <a href="http://www.miitbeian.gov.cn/" target="_blank">津ICP备16002644号-1</a> )        &nbsp;<a href="http://discuz.qq.com/service/security" target="_blank" title="防水墙保卫网站远离侵害"><img src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/security.png"></a>        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2f569347250cdff76f660a8920891c6b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>        <br>
+        <p>天津将至网络技术有限公司 022-65313166</p>
+
+      </ul>
+    </div>
+  </div>
+  <div class="mobanbus_copyright">
+     <div class="mobanbus">
+      <span class="bus_w100">
+        <!--<p>Copyright &copy; 2001 - 2019 <a href="http://www.henkuai.com" target="_blank">天津将至网络技术有限公司 022-65313166</a></p>-->
+      </span>
+   </div>
+  </div>
+    <div id="ft" class="wp cl">
+                                </div>
+</div>
+<div style="left: auto; right: 0px; visibility: visible;" id="scrolltop">
+  <span><a href="http://www.henkuai.com/space-uid-68756.html" class="bus_slogin">空间</a>
+  </span>
+  <span> <a class="bus_spush" href="http://www.henkuai.com/forum.php?mod=misc&amp;action=nav" onclick="showWindow('nav', this.href, 'get', 0)">发布</a></span>
+
+    <span><a href="http://www.henkuai.com/forum.php?mod=post&amp;action=reply&amp;fid=37&amp;tid=9679&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)" class="replyfast" title="快速回复"><b>快速回复</b></a></span>
+    <span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa"><b>返回顶部</b></a></span>
+    <span>
+    <a href="http://www.henkuai.com/forum-37-1.html" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a>
+    </span>
+  </div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+			<div id="discuz_tips" style="display:none;"></div>
+			<script type="text/javascript">
+				var tipsinfo = '19214358|X3.2|0.6||0|D301D5284AE5AFB80CB2604DEB101531|68756|10|1461928429|15a911afbdab1336f9203dcc8ed2952d|2';
+			</script>
+			<script src="js%E5%8E%9F%E7%94%9FAjax-HTML5%E5%BC%80%E5%8F%91_files/discuz_tips.js" type="text/javascript" charset="UTF-8"></script></div><!--Mobanbus_cn mobanbus_iner end-->
+</div><!--Mobanbus_cn mobanbus end-->
+  </div><div style="display: block;" id="SL_balloon_obj"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/imtranslator-s.png&quot;) repeat scroll 0% 0%; display: none; width: 24px; height: 24px; position: absolute; cursor: pointer; visibility: visible; opacity: 1; transition: visibility 0.1s ease 0s, opacity 0.1s linear 0s; left: 612px; top: 5641px;" id="SL_button"></div><div style="display: none; margin-top: 30px; margin-left: 1px; direction: ltr; text-align: left; min-height: 40px;" id="SL_shadow_translation_result2"><div></div></div><div style="display: none;" id="SL_shadow_translator"><div id="SL_providers"><div id="SL_P0" title="Google" class="SL_BL_LABLE_ON">G</div><div id="SL_P1" title="Microsoft" class="SL_BL_LABLE_ON">M</div><div id="SL_P2" title="Translator" class="SL_BL_LABLE_ON">T</div></div><div style="background: rgb(244, 245, 245) url(&quot;chrome://imtranslator/content/img/util/bg2.png&quot;) repeat scroll 0% 0%;" id="SL_planshet"><div id="SL_TB"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/imtranslator-s.png&quot;) repeat scroll 0% 0%; display: block; width: 24px; height: 24px; cursor: pointer; position: absolute;" id="bubblelogo"></div><table id="SL_tables"><tr><td width="10%" align="right"><input title="鎖定語言" id="SLloc" type="checkbox"></td><td width="20%" align="left"><select id="SL_lng_from"><option selected="selected" value="auto">檢測語言</option><option value="sq">阿尔巴尼亚语</option><option value="ar">阿拉伯语</option><option value="az">阿塞拜疆语</option><option value="ga">爱尔兰语</option><option value="et">爱沙尼亚语</option><option value="eu">巴斯克语</option><option value="be">白俄罗斯语</option><option value="bg">保加利亚语</option><option value="is">冰岛语</option><option value="pl">波兰语</option><option value="bs">波斯尼亚语</option><option value="fa">波斯语</option><option value="af">布尔语(南非荷兰语)</option><option value="da">丹麦语</option><option value="de">德语</option><option value="ru">俄语</option><option value="fr">法语</option><option value="tl">菲律宾语</option><option value="fi">芬兰语</option><option value="km">高棉语</option><option value="ka">格鲁吉亚语</option><option value="gu">古吉拉特语</option><option value="kk">哈萨克语</option><option value="ht">海地克里奥尔语</option><option value="ko">韩语</option><option value="ha">豪萨语</option><option value="nl">荷兰语</option><option value="gl">加利西亚语</option><option value="ca">加泰罗尼亚语</option><option value="cs">捷克语</option><option value="kn">卡纳达语</option><option value="hr">克罗地亚语</option><option value="la">拉丁语</option><option value="lv">拉脱维亚语</option><option value="lo">老挝语</option><option value="lt">立陶宛语</option><option value="ro">罗马尼亚语</option><option value="mg">马尔加什语</option><option value="mt">马耳他语</option><option value="mr">马拉地语</option><option value="ml">马拉雅拉姆语</option><option value="ms">马来语</option><option value="mk">马其顿语</option><option value="mi">毛利语</option><option value="mn">蒙古语</option><option value="bn">孟加拉语</option><option value="my">缅甸语</option><option value="hmn">苗语</option><option value="zu">南非祖鲁语</option><option value="ne">尼泊尔语</option><option value="no">挪威语</option><option value="pa">旁遮普语</option><option value="pt">葡萄牙语</option><option value="ny">齐切瓦语</option><option value="ja">日语</option><option value="sv">瑞典语</option><option value="sr">塞尔维亚语</option><option value="st">塞索托语</option><option value="si">僧伽罗语</option><option value="eo">世界语</option><option value="sk">斯洛伐克语</option><option value="sl">斯洛文尼亚语</option><option value="sw">斯瓦希里语</option><option value="ceb">宿务语</option><option value="so">索马里语</option><option value="tg">塔吉克语</option><option value="te">泰卢固语</option><option value="ta">泰米尔语</option><option value="th">泰语</option><option value="tr">土耳其语</option><option value="cy">威尔士语</option><option value="ur">乌尔都语</option><option value="uk">乌克兰语</option><option value="uz">乌兹别克语</option><option value="iw">希伯来语</option><option value="el">希腊语</option><option value="es">西班牙语</option><option value="hu">匈牙利语</option><option value="hy">亚美尼亚语</option><option value="ig">伊博语</option><option value="it">意大利语</option><option value="yi">意第绪语</option><option value="hi">印地语</option><option value="su">印尼巽他语</option><option value="id">印尼语</option><option value="jw">印尼爪哇语</option><option value="en">英语</option><option value="yo">约鲁巴语</option><option value="vi">越南语</option><option value="zh-CN">中文简体</option><option value="zh-TW">中文繁体</option></select></td><td width="5%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/switchb.png&quot;) repeat scroll 0% 0%; display: block; width: 10px; height: 10px; cursor: pointer;" title="切換語言" id="SL_switch_b" align="center"></div></td><td width="20%" align="left"><select id="SL_lng_to"><option value="sq">阿尔巴尼亚语</option><option value="ar">阿拉伯语</option><option value="az">阿塞拜疆语</option><option value="ga">爱尔兰语</option><option value="et">爱沙尼亚语</option><option value="eu">巴斯克语</option><option value="be">白俄罗斯语</option><option value="bg">保加利亚语</option><option value="is">冰岛语</option><option value="pl">波兰语</option><option value="bs">波斯尼亚语</option><option value="fa">波斯语</option><option value="af">布尔语(南非荷兰语)</option><option value="da">丹麦语</option><option value="de">德语</option><option value="ru">俄语</option><option value="fr">法语</option><option value="tl">菲律宾语</option><option value="fi">芬兰语</option><option value="km">高棉语</option><option value="ka">格鲁吉亚语</option><option value="gu">古吉拉特语</option><option value="kk">哈萨克语</option><option value="ht">海地克里奥尔语</option><option value="ko">韩语</option><option value="ha">豪萨语</option><option value="nl">荷兰语</option><option value="gl">加利西亚语</option><option value="ca">加泰罗尼亚语</option><option value="cs">捷克语</option><option value="kn">卡纳达语</option><option value="hr">克罗地亚语</option><option value="la">拉丁语</option><option value="lv">拉脱维亚语</option><option value="lo">老挝语</option><option value="lt">立陶宛语</option><option value="ro">罗马尼亚语</option><option value="mg">马尔加什语</option><option value="mt">马耳他语</option><option value="mr">马拉地语</option><option value="ml">马拉雅拉姆语</option><option value="ms">马来语</option><option value="mk">马其顿语</option><option value="mi">毛利语</option><option value="mn">蒙古语</option><option value="bn">孟加拉语</option><option value="my">缅甸语</option><option value="hmn">苗语</option><option value="zu">南非祖鲁语</option><option value="ne">尼泊尔语</option><option value="no">挪威语</option><option value="pa">旁遮普语</option><option value="pt">葡萄牙语</option><option value="ny">齐切瓦语</option><option value="ja">日语</option><option value="sv">瑞典语</option><option value="sr">塞尔维亚语</option><option value="st">塞索托语</option><option value="si">僧伽罗语</option><option value="eo">世界语</option><option value="sk">斯洛伐克语</option><option value="sl">斯洛文尼亚语</option><option value="sw">斯瓦希里语</option><option value="ceb">宿务语</option><option value="so">索马里语</option><option value="tg">塔吉克语</option><option value="te">泰卢固语</option><option value="ta">泰米尔语</option><option value="th">泰语</option><option value="tr">土耳其语</option><option value="cy">威尔士语</option><option value="ur">乌尔都语</option><option value="uk">乌克兰语</option><option value="uz">乌兹别克语</option><option value="iw">希伯来语</option><option value="el">希腊语</option><option selected="selected" value="es">西班牙语</option><option value="hu">匈牙利语</option><option value="hy">亚美尼亚语</option><option value="ig">伊博语</option><option value="it">意大利语</option><option value="yi">意第绪语</option><option value="hi">印地语</option><option value="su">印尼巽他语</option><option value="id">印尼语</option><option value="jw">印尼爪哇语</option><option value="en">英语</option><option value="yo">约鲁巴语</option><option value="vi">越南语</option><option value="zh-CN">中文简体</option><option value="zh-TW">中文繁体</option></select></td><td width="5%" align="center"> </td><td width="6%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/tts-voice.png&quot;) repeat scroll 0% 0%;" title="聆聽" id="SL_TTS_voice"></div></td><td width="6%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/copy_hand.png&quot;) repeat scroll 0% 0%;" title="複製譯文" id="SL_copy"></div></td><td width="6%" align="center"><div id="SL_bbl_font_patch"></div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/font-off.png&quot;) repeat scroll 0% 0%;" title="字體大小" id="SL_bbl_font"></div></td><td width="6%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/history.png&quot;) repeat scroll 0% 0%;" title="翻譯歷史" id="SL_TH"></div></td><td width="10%"></td><td width="6%" align="right"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/pin-off.png&quot;) repeat scroll 0% 0%; display: block; width: 16px; height: 16px; cursor: pointer;" title="固定彈出窗口" id="SL_pin"></div></td></tr></table></div></div><div style="background: rgb(255, 255, 255) url(&quot;chrome://imtranslator/content/img/util/bg.png&quot;) repeat scroll 0% 0%; visibility: visible; min-height: 40px;" id="SL_shadow_translation_result"><div></div></div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/indicator.gif&quot;) repeat scroll 0% 0%; display: block; position: absolute; width: 35px; margin-left: 180px; margin-top: -40px; height: 35px;" id="SL_loading"></div><div style="display: none; height: 0px; width: 0px;" id="SL_player2"></div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/bg2.png&quot;) repeat scroll 0% 0%; display: none;" id="SL_alert100">語言功能限100個字符</div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/donate2.png&quot;) repeat scroll 0% 0%;" title="進行一點捐款" id="SL_bbl_donate"></div><div style="background: rgb(255, 255, 255) url(&quot;chrome://imtranslator/content/img/util/bg3.png&quot;) repeat scroll 0% 0%;" id="SL_Balloon_options"><a title="顯示選項" id="OPlnk" href="#">選項</a> : <a title="翻譯歷史" id="HISTlnk" href="#">歷史</a> : <a title="幫助" id="HELPlnk" target="_blank" href="http://about.imtranslator.net/tutorials/presentations/imtranslator-translator-for-firefox/popup-bubble-application/">幫助</a> : <a title="反饋" id="FBlnk" href="#">反饋</a><a title="關閉" href="#" id="SL_Balloon_Close">關閉</a></div></div></div></body></html>

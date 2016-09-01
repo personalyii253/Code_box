@@ -1,0 +1,35 @@
+可以先清除本地文件夹下的git文件，然后在重新初始化新建的git仓库
+//删除文件夹下的所有 .git 文件
+    find . -name ".git" | xargs rm -Rf
+
+
+http://www.jb51.net/article/55442.htm
+http://justcoding.iteye.com/blog/1830388
+https://git-for-windows.github.io/#contribute
+
+
+
+CSDN登陆
+zhh：w_weisen
+mm:csdnweisen
+	个人账户：xiaosa65
+	个人密码：xiaosa65
+	
+     建立新组织
+	组织
+		name   yii21
+		email  网易
+		pwd:yii21
+	个人   
+		name:personalyii253
+		email:QQ
+		pwd:personalyii253<修改为：ws123123>
+
+https://github.com/twogroup/ones/watchers
+
+Git本地
+用户名：w_weisenssss
+邮箱：w54supersen@163.com
+
+
+提交项目：sentijiao

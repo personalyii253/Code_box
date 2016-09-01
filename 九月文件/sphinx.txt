@@ -1,0 +1,46 @@
+SQL   结构化查询语言(是一种标准,所有的关系型数据库Mysql,sqlserver,oracle)
+
+sphinx的使用两种方式:
+
+第一种:  使用sphinx的API来操作sphinx   (常用)   
+	 sphinx可以使用API类,也可以将api编译到PHP中做为扩展
+第二种:  使用mysql的sphinx的存储引擎 
+
+
+sphinx  这是英文的全文检索引擎
+
+coreseek  这是支持中文词库的全文检索引擎
+
+
+区别:
+	英文的文章 怎么能区分哪个词    以空格来区分词的
+	中文的文章 我爱北京天安门      中文词库
+
+
+使用sphinx的步骤:
+
+1、安装
+2、配置(配置文件 csft_mysql.conf)
+   配置文件格式
+	1、数据源定义 (指向你数据的来源 ,通常是mysql)
+        2、索引 （索引的一些配置信息）
+        3、indexer  (内用的内存---基本不需要设置)
+        4、searchd  （服务器的一些配置---）
+
+   注意: 
+	1、一个配置文件可以配置多个数据源和索引 （(1,2),(1,2),nnnn）
+	2、sql_query  主查询(把数据库表中的哪些字段查询出来--根据你页面的搜索条件)
+	              select 第一个字段(一定是主键)
+
+3、indexer.exe -c 配置文件 --all(参数--all 表示创建全部索引) 
+4、启动searchd 服务  searchd.exe -c 配置文件
+5、php 操作sphinx 
+#创建索引
+.\bin\indexer.exe -c .\etc\csft_mysql.conf --all
+#查看索引
+.\bin\search.exe -c  .\etc\csft_mysql.conf
+#开启索引
+.\bin\searchd.exe -c .\etc\csft_mysql.conf
+
+
+http://www.coreseek.cn/

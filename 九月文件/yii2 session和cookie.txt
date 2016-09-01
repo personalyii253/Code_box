@@ -1,0 +1,112 @@
+yii2打开session
+
+use  yii\web\Session;
+ 
+$session = Yii::$app->session;
+// check if a session is already open
+if ($session->isActive) ...
+// open a session
+$session->open();
+// close a session
+$session->close();
+// destroys all data registered to a session.
+$session->destroy();
+
+设置session
+
+$session = Yii::$app->session;
+$session->set('user_id', '1234');
+//OR
+$session['user_id'] = '1234';
+//OR
+$_SESSION['user_id'] = '1234';
+
+读取session
+
+$session = Yii::$app->session;
+
+
+
+
+$user_id = $session->get('user_id');
+//OR
+$user_id = $session['user_id'];
+//OR
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+销毁session
+$session = Yii::$app->session;
+$session->remove('user_id');
+//OR
+unset($session['user_id']);
+//OR
+unset($_SESSION['user_id']);
+
+数组session的读取与设置
+
+$session = Yii::$app->session;
+$session['user'] = [
+    'id' => 1,
+    'username' => 'yiiuser',
+];
+echo $session['user']['id'];
+echo $session['user']['username'];
+ 
+$session['user.id'] = 1;
+$session['user.username'] = 'yiiuser';
+
+
+
+
+
+1、GET/POST
+
+1.1、获取GET/POST过来的数据
+Yii::app()->request->getParam( 'id' );
+
+1.2、判断数据提交方式
+Yii::app()->request->isPostRequest
+2、session/cookie
+
+2.1、session常用操作
+
+$_SESSION 等价于 Yii::app()->session;
+
+2.1.1、写入session
+
+//启动session
+$session=new CHttpSession;
+$session->open();
+Yii::app()->session[ 'key' ] = 'value'
+
+2.1.2、读取session
+Yii::app()->session[ 'key' ]
+
+2.1.3、获取session的ID
+Yii::app()->session->sessionID
+
+2.1.4、销毁session	
+//移去所有session变量
+Yii::app()->session->clear();
+//移去存储在服务器端的数据
+Yii::app()->session->destroy();
+
+2.1.5、session高级用法
+$session = Yii::app()->session;
+$session [ 'key' ] = 'value' ;
+var_dump( $session [ 'key' ]);
+
+2.2 cookie
+
+2.2.1 设置cookie
+$cookie = new CHttpCookie(‘mycookie’,'this is my cookie’);
+$cookie ->expire = time()+60*60*24*30;  //有限期30天
+Yii::app()->request->cookies[ 'mycookie' ]= $cookie ;
+
+2.2.2 读取cookie
+$cookie = Yii::app()->request->getCookies();
+echo $cookie [ 'mycookie' ]->value;
+
+2.2.3 销毁cookie
+$cookie = Yii::app()->request->getCookies();
+unset( $cookie [ $name ]); 
+

@@ -1,0 +1,130 @@
+(用户管理)
+1.用户表(admin_user)
+id 后台用户ID
+a_user 用户名
+a_password 密码
+
+2.个人(企业)用户表(user)
+u_id 前台用户ID               !!!注意看看你的是否符合
+u_name 用户名
+u_password 密码
+email 邮箱
+type 类型(0:代表个人,1:代表企业)
+
+
+3.职位详情表(zhiwei_detail)
+z_id 职位详情ID
+p_id 职位ID
+e_id 经验ID
+x_id 学历ID
+q_id 月薪
+z_department 所属部门
+z_address 工作地址
+z_time 发布时间
+z_fuli 职位诱惑
+	//修改
+	z_new 最底薪
+	z_hot 最高新
+		//后补充
+		z_email 接收简历邮箱
+		z_xingzi 工作性质（实习、兼职、全职）
+		z_city 工作城市
+			//补充
+			z_type_position 职业状态（1有效  0无效）
+
+
+
+(简历管理)
+4.简历表(jianli)
+j_id 简历ID
+u_id 用户ID
+x_id 学历ID
+q_id 薪资ID
+e_id 经验ID
+p_id 职位ID
+r_id 城市ID
+j_name 简历名称
+j_sex 性别
+j_img 头像
+j_phone 手机号
+j_type 类型(0代表:兼职,1代表:全职)
+j_addtime 添加时间
+		//二次补充修改
+		region_id   地区ID
+		j_state     //简历状态  （默认为“0”待处理、“1”已通知面试、“2”不合适、“3”自动过滤）
+
+
+
+(公司管理)
+5.公司表(company)
+c_id 公司ID
+s_id 阶段ID
+t_id 领域ID
+z_id 职位ID	
+c_name公司名称
+c_person 公司创始人
+c_email 公司邮箱
+c_guimo 公司规模
+c_address 公司地址
+c_order 国内排名
+c_advantage 优势核心价值
+c_introduce 公司介绍
+c_advertisement_content 公司广告内容
+c_status 状态(0代表:未上市;1代表:已上市)
+		//后补充
+		region_id 公司所在城市ID
+		c_advertisement_name 公司广告名
+		c_advertisement_link 公司广告链接
+
+
+
+(职位管理)
+6.职位表(position)
+p_id 职位ID
+r_id 父级ID
+p_name 职位名称
+
+
+(工作经验管理)
+7.工作经验表(experience)
+e_id 经验ID
+e_time 工作时间
+
+
+(地区管理)
+8.地区管理表(region)
+region_id 地区ID
+parent_id 父级ID
+region_name 地区名称
+
+
+(薪资管理)
+9.薪资表(salary)
+q_id 薪资ID
+q_treat 薪资待遇
+
+
+(阶段管理)
+10.阶段表(stage)
+s_id 阶段ID
+s_name 阶段名称
+
+
+(领域管理)
+11.领域表(territory)
+t_id 领域ID
+t_name 领域名称
+		//后补充
+		c_zhuye  公司主页 
+
+(学历管理)
+12.学历表(xueli)
+x_id 学历ID
+x_name 学历名称
+
+
+(资深报导管理)
+13.资深报导表(report)
+re_id 报导ID
+re_title 标题
+re_link 链接

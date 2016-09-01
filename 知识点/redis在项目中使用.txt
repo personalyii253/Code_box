@@ -1,0 +1,13 @@
+<?php
+
+$redis = new Redis(); //实例化redis
+
+$redis->pconnect('127.0.0.1', '6379'); //建立redis服务连接
+
+$redis->set($key, $value); //设置变量和变量值
+
+$redis->get($key); //获取变量值
+
+$redis->close(); //关闭redis连接
+
+?>

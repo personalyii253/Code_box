@@ -1,0 +1,22 @@
+项目根目录运行：【 php artisan make:middleware OldMiddleware 】生成“OldMiddleware”中间件
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class OldMiddleware
+{
+    /**
+     * 返回请求过滤器
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        return $next($request);
+    }
+
+}

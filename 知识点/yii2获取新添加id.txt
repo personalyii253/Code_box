@@ -1,0 +1,29 @@
+1，你可以得到最后一个插入的ID：
+Yii::$app->db->getLastInsertId();
+
+2、如果$模型- > ID将不工作，然后使用
+
+Yii::$app->db->getLastInsertId() or getPrimaryKey()
+
+3，如果你的目标是获取被分配给你刚刚保存的模型的标识，
+然后你做模型-> save()美元，美元只是做模型->身份证拿回来。
+If your goal is to get the id that was assigned to the model that you just saved, 
+  then after you do $model->save(), simply do $model->id to get it back.
+
+
+4、你也可以得到另一个模型的最后一个插入的ID。
+$std_id = Students::model()->findAll(array('order' => 'admission_no DESC','limit' => 1));
+
+            foreach($std_id as $f) {
+
+                echo  "Last Inserted Admission No:".$f['admission_no'];
+                }
+
+or
+
+you can last inserted id in the  same model
+
+Yii::$app->db->getLastInsertID();
+
+6 yii2最后插入的ID可以得到利用
+Yii::$app->db->getLastInsertedID();

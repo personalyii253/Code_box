@@ -1,0 +1,43 @@
+sphinx 使用小结
+【哪个方法使用sphinx，先配置csft_mysql.conf，然后直接连接，引入：use SphinxClent;，连接后其他操作正常进行】
+开启sphinx时开启服务
+一个配置里开启两个索引
+【把源定义和index定义复制整体一遍改名改sql即可（有待考证）】
+
+
+
+
+数据库字段  价格区间一个值 （类型：decimal）
+
+配置sphinx（sql_attr_float      = 价格区间字段名【例：g_price】）
+
+C
+
+use frontend\models\Goods;
+use SphinxClient;
+use yii\data\Pagination;
+
+actionIndex{
+   实例化mode类；
+   $request=Yii::$app->request;
+   $g_name=$request->get('g_name')?$request->get('g_name'):'';//接值
+   $min_price =...............................................//最小值
+   $max_price =...............................................//最大值
+
+   //连接配置sphinx
+   $cl = new SphinxClient();
+   $db = new \Yii\db\Query;
+   $cl -> Setserver('127.0.0.1',9312);
+   $cl -> SetConnectTimeout(3);
+
+   //判断最大最小值不为空
+   if($min_price!=""&&$max_price!=""){
+       //SetFilterFloatRange 获取区间值       floatval 过滤值
+       $cl->SetFilterFloatRange("字段名",floatval($min_price),floatval($max_price));
+   }
+   
+   $cl -> SetArrayResult(true);//数组形式
+
+
+   【03:37】
+}

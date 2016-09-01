@@ -1,0 +1,184 @@
+1、单个文件上传
+
+首先建立一个模型models/UploadForm.php,内容如下
+
+namespace app\models;
+
+use yii\base\Model;
+use yii\web\UploadedFile;
+
+/**
+ * UploadForm is the model behind the upload form.
+ */
+class UploadForm extends Model
+{
+    /**
+     * @var UploadedFile file attribute
+     */
+    public $file;
+
+    /**
+     * @return array the validation rules.
+     */
+    public function rules()
+    {
+        return [
+            [['file'], 'file'],
+        ];
+    }
+}
+
+再建立一个视图文件，内容如下
+
+<?php
+use yii\widgets\ActiveForm;
+?>
+
+<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+
+<?= $form->field($model, 'file')->fileInput() ?>
+
+<button>Submit</button>
+
+<?php ActiveForm::end() ?>
+
+最后建立控制器文件，内容如下
+
+namespace app\controllers;
+
+use Yii;
+use yii\web\Controller;
+use app\models\UploadForm;
+use yii\web\UploadedFile;
+
+class SiteController extends Controller
+{
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if ($model->file && $model->validate()) {                
+                $model->file->saveAs('uploads/' . $model->file->baseName . '.' . $model->file->extension);
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
+    }
+}
+
+注意这里我们没有用model->load(...)，而是用了UploadedFile::getInstance(...)。区别是后者不会执行$model->validate()，所以需要手动的去执行$model->validate()来检验数据的合法性。如果检验通过了，上传的文件保存在uploads文件夹下，即web目录下的uploads里。
+
+一些可选的配置选项
+上传文件不能为空
+
+public function rules()
+{
+    return [
+        [['file'], 'file', 'skipOnEmpty' => false],
+    ];
+}
+
+上传类型，不仅可以根据扩展名检验，还可以根据文件的内容进行检验
+
+public function rules()
+{
+    return [
+        [['file'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
+    ];
+}
+
+2、多文件上传
+
+如果你想一次上传多个文件，只需调节几个参数就可以达到目的
+
+Model：
+
+class UploadForm extends Model
+{
+    /**
+     * @var UploadedFile|Null file attribute
+     */
+    public $file;
+
+    /**
+     * @return array the validation rules.
+     */
+    public function rules()
+    {
+        return [
+            [['file'], 'file', 'maxFiles' => 10], // <--- here!
+        ];
+    }
+}
+
+View：
+
+<?php
+use yii\widgets\ActiveForm;
+
+$form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);
+?>
+
+<?= $form->field($model, 'file[]')->fileInput(['multiple' => true]) ?>
+
+    <button>Submit</button>
+
+<?php ActiveForm::end(); ?>
+
+与单文件上传不同的是下面这句
+
+$form->field($model, 'file[]')->fileInput(['multiple' => true])
+
+Controller:
+
+namespace app\controllers;
+
+use Yii;
+use yii\web\Controller;
+use app\models\UploadForm;
+use yii\web\UploadedFile;
+
+class SiteController extends Controller
+{
+
+    public function actionIndex()        //注意
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstances($model, 'file');
+
+            if ($model->file && $model->validate()) {
+                foreach ($model->file as $file) {
+                    $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
+                }
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+不使用模型层进行文件上传
+	public $enableCsrfValidation = false;
+
+        $upload=new UploadedFile();  //实例化上传类
+        $name=$upload->getInstanceByName('myfile');  //获取文件原名称
+        $img=$_FILES['myfile']; //获取上传文件参数
+        $upload->tempName=$img['tmp_name'];  //设置上传的文件的临时名称
+        $img_path='uploads/'.$name; //设置上传文件的路径名称(这里的数据进行入库)
+        $arr=$upload->saveAs($img_path); //保存文件
+        var_dump($arr);

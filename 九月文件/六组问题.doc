@@ -1,0 +1,31 @@
+对数据库的增删改
+分页类的使用
+model层的使用
+表单验证
+图像上传
+
+对称加密
+
+单点登录
+第三方登录
+单元测试 phpunit
+简历保存成（HTML  DOC   PDF）件
+百度地图api
+
+热门信息放在memcache中
+
+corseek的安装
+建立索引
+开启corseek服务
+使用corseek进行查询
+什么是增量索引
+实时更新corseek索引
+
+
+SRBAC权限管理
+实现网站用户信息统计excel下载功能
+
+
+
+crsf是什么？
+在yii里怎么自动加载第三方类或自己写的类？

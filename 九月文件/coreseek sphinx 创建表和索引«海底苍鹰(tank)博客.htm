@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN"><head profile="http://gmpg.org/xfn/11">
+<meta property="qc:admins" content="1161332111106375">	
+<meta property="wb:webmaster" content="b1906381053a1c93">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="canonical" href="http://blog.51yip.com/mysql/1643.html"><meta name="keywords" content="coreseek,index,sphinx,table,索引,表">
+<meta name="description" content="coreseek sphinx 创建表和索引">
+	<title>  coreseek sphinx 创建表和索引«海底苍鹰(tank)博客</title>
+<meta name="google-site-verification" content="Z1PF5NCqkdtwbxzUTwlOmG4skCjHJETmCtJKx7U4s4E">
+	<link rel="stylesheet" href="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/style.css" type="text/css" media="screen">
+  <link rel="shortcut icon" type="image/ico" href="http://blog.51yip.com/favicon.ico">
+	<link rel="pingback" href="http://blog.51yip.com/xmlrpc.php">
+	<!--<link rel="author" href="https://plus.google.com/113380862708536382046" />-->
+		<link rel="archives" title="2016年四月" href="http://blog.51yip.com/date/2016/04">
+	<link rel="archives" title="2016年三月" href="http://blog.51yip.com/date/2016/03">
+	<link rel="archives" title="2016年二月" href="http://blog.51yip.com/date/2016/02">
+	<link rel="archives" title="2016年一月" href="http://blog.51yip.com/date/2016/01">
+	<link rel="archives" title="2015年十二月" href="http://blog.51yip.com/date/2015/12">
+	<link rel="archives" title="2015年十一月" href="http://blog.51yip.com/date/2015/11">
+	<link rel="archives" title="2015年十月" href="http://blog.51yip.com/date/2015/10">
+	<link rel="archives" title="2015年九月" href="http://blog.51yip.com/date/2015/09">
+	<link rel="archives" title="2015年八月" href="http://blog.51yip.com/date/2015/08">
+	<link rel="archives" title="2015年七月" href="http://blog.51yip.com/date/2015/07">
+	<link rel="archives" title="2015年六月" href="http://blog.51yip.com/date/2015/06">
+	<link rel="archives" title="2015年五月" href="http://blog.51yip.com/date/2015/05">
+	<link rel="archives" title="2015年四月" href="http://blog.51yip.com/date/2015/04">
+	<link rel="archives" title="2015年三月" href="http://blog.51yip.com/date/2015/03">
+	<link rel="archives" title="2015年二月" href="http://blog.51yip.com/date/2015/02">
+	<link rel="archives" title="2015年一月" href="http://blog.51yip.com/date/2015/01">
+	<link rel="archives" title="2014年十二月" href="http://blog.51yip.com/date/2014/12">
+	<link rel="archives" title="2014年十一月" href="http://blog.51yip.com/date/2014/11">
+	<link rel="archives" title="2014年十月" href="http://blog.51yip.com/date/2014/10">
+	<link rel="archives" title="2014年九月" href="http://blog.51yip.com/date/2014/09">
+	<link rel="archives" title="2014年八月" href="http://blog.51yip.com/date/2014/08">
+	<link rel="archives" title="2014年七月" href="http://blog.51yip.com/date/2014/07">
+	<link rel="archives" title="2014年六月" href="http://blog.51yip.com/date/2014/06">
+	<link rel="archives" title="2014年五月" href="http://blog.51yip.com/date/2014/05">
+	<link rel="archives" title="2014年四月" href="http://blog.51yip.com/date/2014/04">
+	<link rel="archives" title="2014年三月" href="http://blog.51yip.com/date/2014/03">
+	<link rel="archives" title="2014年二月" href="http://blog.51yip.com/date/2014/02">
+	<link rel="archives" title="2013年十二月" href="http://blog.51yip.com/date/2013/12">
+	<link rel="archives" title="2013年十一月" href="http://blog.51yip.com/date/2013/11">
+	<link rel="archives" title="2013年十月" href="http://blog.51yip.com/date/2013/10">
+	<link rel="archives" title="2013年九月" href="http://blog.51yip.com/date/2013/09">
+	<link rel="archives" title="2013年八月" href="http://blog.51yip.com/date/2013/08">
+	<link rel="archives" title="2013年七月" href="http://blog.51yip.com/date/2013/07">
+	<link rel="archives" title="2013年六月" href="http://blog.51yip.com/date/2013/06">
+	<link rel="archives" title="2013年五月" href="http://blog.51yip.com/date/2013/05">
+	<link rel="archives" title="2013年四月" href="http://blog.51yip.com/date/2013/04">
+	<link rel="archives" title="2013年三月" href="http://blog.51yip.com/date/2013/03">
+	<link rel="archives" title="2013年二月" href="http://blog.51yip.com/date/2013/02">
+	<link rel="archives" title="2013年一月" href="http://blog.51yip.com/date/2013/01">
+	<link rel="archives" title="2012年十二月" href="http://blog.51yip.com/date/2012/12">
+	<link rel="archives" title="2012年十一月" href="http://blog.51yip.com/date/2012/11">
+	<link rel="archives" title="2012年十月" href="http://blog.51yip.com/date/2012/10">
+	<link rel="archives" title="2012年九月" href="http://blog.51yip.com/date/2012/09">
+	<link rel="archives" title="2012年八月" href="http://blog.51yip.com/date/2012/08">
+	<link rel="archives" title="2012年七月" href="http://blog.51yip.com/date/2012/07">
+	<link rel="archives" title="2012年六月" href="http://blog.51yip.com/date/2012/06">
+	<link rel="archives" title="2012年五月" href="http://blog.51yip.com/date/2012/05">
+	<link rel="archives" title="2012年四月" href="http://blog.51yip.com/date/2012/04">
+	<link rel="archives" title="2012年三月" href="http://blog.51yip.com/date/2012/03">
+	<link rel="archives" title="2012年二月" href="http://blog.51yip.com/date/2012/02">
+	<link rel="archives" title="2012年一月" href="http://blog.51yip.com/date/2012/01">
+	<link rel="archives" title="2011年十二月" href="http://blog.51yip.com/date/2011/12">
+	<link rel="archives" title="2011年十一月" href="http://blog.51yip.com/date/2011/11">
+	<link rel="archives" title="2011年十月" href="http://blog.51yip.com/date/2011/10">
+	<link rel="archives" title="2011年九月" href="http://blog.51yip.com/date/2011/09">
+	<link rel="archives" title="2011年八月" href="http://blog.51yip.com/date/2011/08">
+	<link rel="archives" title="2011年七月" href="http://blog.51yip.com/date/2011/07">
+	<link rel="archives" title="2011年六月" href="http://blog.51yip.com/date/2011/06">
+	<link rel="archives" title="2011年五月" href="http://blog.51yip.com/date/2011/05">
+	<link rel="archives" title="2011年四月" href="http://blog.51yip.com/date/2011/04">
+	<link rel="archives" title="2011年三月" href="http://blog.51yip.com/date/2011/03">
+	<link rel="archives" title="2011年二月" href="http://blog.51yip.com/date/2011/02">
+	<link rel="archives" title="2011年一月" href="http://blog.51yip.com/date/2011/01">
+	<link rel="archives" title="2010年十二月" href="http://blog.51yip.com/date/2010/12">
+	<link rel="archives" title="2010年十一月" href="http://blog.51yip.com/date/2010/11">
+	<link rel="archives" title="2010年十月" href="http://blog.51yip.com/date/2010/10">
+	<link rel="archives" title="2010年九月" href="http://blog.51yip.com/date/2010/09">
+	<link rel="archives" title="2010年八月" href="http://blog.51yip.com/date/2010/08">
+	<link rel="archives" title="2010年七月" href="http://blog.51yip.com/date/2010/07">
+	<link rel="archives" title="2010年六月" href="http://blog.51yip.com/date/2010/06">
+	<link rel="archives" title="2010年五月" href="http://blog.51yip.com/date/2010/05">
+	<link rel="archives" title="2010年四月" href="http://blog.51yip.com/date/2010/04">
+	<link rel="archives" title="2010年三月" href="http://blog.51yip.com/date/2010/03">
+	<link rel="archives" title="2010年二月" href="http://blog.51yip.com/date/2010/02">
+  	  
+  
+	
+	<link rel="alternate" type="application/rss+xml" title="海底苍鹰(tank)博客 » coreseek sphinx 创建表和索引 评论 Feed" href="http://blog.51yip.com/mysql/1643.html/feed">
+<link rel="stylesheet" id="wp-pagenavi-css" href="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pagenavi-css.css" type="text/css" media="">
+<script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pcym_002" async="" type="text/javascript"></script><script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pcym" async="" type="text/javascript"></script><script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pcym_003" async="" type="text/javascript"></script><script type="text/javascript" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/jquery.js"></script>
+<script type="text/javascript" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/comment-reply.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.51yip.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.51yip.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="海底苍鹰(tank)博客" href="http://blog.51yip.com/">
+<link rel="start" title="linux  eclipse 安装  php 插件安装" href="http://blog.51yip.com/eclipse/15.html">
+<link rel="prev" title="coreseek sphinx mmseg mysql 全文检索 安装 配置" href="http://blog.51yip.com/mysql/1641.html">
+<link rel="next" title="mongodb select php操作 命令行操作" href="http://blog.51yip.com/php/1644.html">
+<meta name="generator" content="WordPress 2.9.1">
+<link rel="canonical" href="http://blog.51yip.com/mysql/1643.html">
+	<link href="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/SyntaxHighlighter.css" type="text/css" rel="stylesheet">
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/share.js"></script><link href="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/translator.css" id="SL_Style" type="text/css" rel="stylesheet"><link href="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/share_style0_32.css" rel="stylesheet"><link href="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/share_popup.css" rel="stylesheet"><link href="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/select_share.css" rel="stylesheet"></head>
+
+<body><div style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;" id="BAIDU_DUP_fp_wrapper"><iframe style="width: 0px; height: 0px; visibility: hidden; display: none;" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/o.htm" id="BAIDU_DUP_fp_iframe"></iframe></div>
+
+<div id="wrapper">
+
+	<div id="header">
+
+		<div class="headerwrap">
+
+			<div id="logo">
+								<h2><a href="http://blog.51yip.com/" title="－－一步，二步，三步，N步，二行脚印">海底苍鹰(tank)博客</a></h2>
+							</div>
+
+			<div id="search">
+				<form method="get" id="searchform" action="http://blog.51yip.com/">
+	<div>
+		<input name="s" id="s" type="text">
+		<input id="searchsubmit" value="Search" type="submit">
+	</div>
+</form>			</div>
+
+
+      
+			<div id="description">
+				<h3>－－一步，二步，三步，N步，二行脚印</h3>
+			</div>
+
+      <div id="blackband_top_right">
+        <h2>
+        <ul id="dropmenu">
+          <li class="page_item"><a href="http://blog.51yip.com/donate" title="赞助本站">赞助本站</a></li>
+          <li class="page_item"><a href="http://blog.51yip.com/aboutme" title="海底苍鹰(tank)博客">关于我</a></li>
+          <!--<li class="page_item"><a href="http://blog.51yip.com/tag-page" title="标签页">标签页</a></li>-->
+          <li class="page_item"><a href="http://blog.51yip.com/message" title="留言板">留言板</a></li>      
+          <li class="page_item"><a href="http://manual.51yip.com/" title="开发手册">开发手册</a></li>
+          <li class="page_item"><a href="http://linux.51yip.com/" target="_black" title="linux命令手册">linux命令</a></li>
+          <li class="page_item"><a href="http://blog.51yip.com/" title="海底苍鹰(tank)博客">首页</a></li>
+        </ul>
+        </h2>
+      </div>
+      
+      
+		</div>
+
+	</div>
+
+	<div id="page">
+
+		<div class="columns">
+
+<div id="content">
+
+	
+<div class="top"></div>
+	<div class="posts">
+
+<div class="navigation">
+	<div class="alignleft">&lt;&lt; <a href="http://blog.51yip.com/php/1644.html" rel="next">mongodb select php操作 命令行操作</a></div>
+	<div class="alignright"><a href="http://blog.51yip.com/mysql/1641.html" rel="prev">coreseek sphinx mmseg mysql 全文检索 安装 配置</a> &gt;&gt;</div>
+	
+</div>
+<div style="clear:both;"></div>
+<div class="navigation_line"></div>
+		<div class="post-1643 post hentry category-mysql tag-coreseek tag-index tag-sphinx tag-table tag-708 tag-550" id="post-1643">
+
+
+
+
+			<div class="title">
+				 <h1 class="title entry-title">coreseek sphinx 创建表和索引</h1>
+			</div>
+
+			<div class="meta">
+				<p><span class="vcard author"><span class="fn">张映</span></span> 发表于 <span class="date updated">2014-08-05</span></p>
+				<p>分类目录： <a href="http://blog.51yip.com/category/mysql" title="查看 mysql 的全部文章" rel="category tag">mysql</a></p>
+				<p>标签：<a href="http://blog.51yip.com/tag/coreseek" rel="tag">coreseek</a>, <a href="http://blog.51yip.com/tag/index" rel="tag">index</a>, <a href="http://blog.51yip.com/tag/sphinx" rel="tag">sphinx</a>, <a href="http://blog.51yip.com/tag/table" rel="tag">table</a>, <a href="http://blog.51yip.com/tag/%e7%b4%a2%e5%bc%95" rel="tag">索引</a>, <a href="http://blog.51yip.com/tag/%e8%a1%a8" rel="tag">表</a></p>			</div>
+
+<div class="bdtop"><script type="text/javascript">
+			    var cpro_id = "u2532578";
+			</script><script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/c.js" type="text/javascript"></script><div id="BAIDU_SSP__wrapper_u2532578_0"><iframe id="iframeu2532578_0" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pcym.htm" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" style="border:0; vertical-align:bottom;margin:0;" allowtransparency="true" frameborder="0" height="70" width="907" align="center,center"></iframe></div></div> 			
+			<div class="entry">
+				<p>前面说了，coreseek sphinx mmseg mysql等的安装，下面说一下怎么使用。</p>
+<p><strong>一,coreseek sphinx启动后，会多出一个端口，并且可以像mysql一样登录，但不是登录mysql</strong></p>
+<p><span id="more-1643"></span></p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">查看</a><a href="#" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">复制</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">打印</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>[root@localhost&nbsp;tank]#&nbsp;mysql&nbsp;-h&nbsp;127.0.0.1&nbsp;-P&nbsp;9306&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">//不是真的连接mysql，而连接了sphinx&nbsp;index</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>Welcome&nbsp;to&nbsp;the&nbsp;MySQL&nbsp;monitor.&nbsp;&nbsp;Commands&nbsp;<span class="func">end</span><span>&nbsp;with&nbsp;;&nbsp;</span><span class="keyword">or</span><span>&nbsp;\g.&nbsp;&nbsp;</span></span></li><li class="alt"><span>Your&nbsp;MySQL&nbsp;connection&nbsp;id&nbsp;is&nbsp;1&nbsp;&nbsp;</span></li><li class=""><span>Server&nbsp;version:&nbsp;1.11-id64-dev&nbsp;(r2540)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>Copyright&nbsp;(c)&nbsp;2000,&nbsp;2013,&nbsp;Oracle&nbsp;<span class="keyword">and</span><span>/</span><span class="keyword">or</span><span>&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>Oracle&nbsp;is&nbsp;a&nbsp;registered&nbsp;trademark&nbsp;of&nbsp;Oracle&nbsp;Corporation&nbsp;<span class="keyword">and</span><span>/</span><span class="keyword">or</span><span>&nbsp;its&nbsp;&nbsp;</span></span></li><li class="alt"><span>affiliates.&nbsp;Other&nbsp;names&nbsp;may&nbsp;be&nbsp;trademarks&nbsp;of&nbsp;their&nbsp;respective&nbsp;&nbsp;</span></li><li class=""><span>owners.&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>Type&nbsp;<span class="string">'help;'</span><span>&nbsp;</span><span class="keyword">or</span><span>&nbsp;</span><span class="string">'\h'</span><span>&nbsp;</span><span class="keyword">for</span><span>&nbsp;help.&nbsp;Type&nbsp;</span><span class="string">'\c'</span><span>&nbsp;to&nbsp;clear&nbsp;the&nbsp;current&nbsp;input&nbsp;statement.&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;tank_test&nbsp;where&nbsp;match(<span class="string">'坦克'</span><span>)&nbsp;;&nbsp;&nbsp;&nbsp;</span><span class="comment">//这种写法，根原装的sphinx不一样</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>+------+--------+------------+------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;id&nbsp;&nbsp;&nbsp;|&nbsp;weight&nbsp;|&nbsp;user_id&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;u_id&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>+------+--------+------------+------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;|&nbsp;&nbsp;&nbsp;2230&nbsp;|&nbsp;1311895260&nbsp;|&nbsp;&nbsp;&nbsp;62&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;|&nbsp;&nbsp;&nbsp;2230&nbsp;|&nbsp;1311895260&nbsp;|&nbsp;&nbsp;&nbsp;33&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;|&nbsp;&nbsp;&nbsp;1304&nbsp;|&nbsp;1311895262&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;|&nbsp;&nbsp;&nbsp;1304&nbsp;|&nbsp;1311895262&nbsp;|&nbsp;&nbsp;&nbsp;34&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+------+--------+------------+------+&nbsp;&nbsp;</span></li><li class="alt"><span>4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>mysql&gt;&nbsp;show&nbsp;META;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//上次检索的信息</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>+---------------+-------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;Variable_name&nbsp;|&nbsp;Value&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+---------------+-------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;total_found&nbsp;&nbsp;&nbsp;|&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;0.000&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;keyword[0]&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;test&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;docs[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;hits[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>+---------------+-------+&nbsp;&nbsp;</span></li><li class=""><span>6&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>mysql&gt;&nbsp;show&nbsp;tables;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//这里的表其实不是真表，也不是create&nbsp;table创建出来的，是sphinx索引</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;dist1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;distributed&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;myorder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;tank_test&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;test1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;test1stemmed&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>6&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="php" name="code">[root@localhost tank]# mysql -h 127.0.0.1 -P 9306      //不是真的连接mysql，而连接了sphinx index
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 1.11-id64-dev (r2540)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; select * from tank_test where match('坦克') ;   //这种写法，根原装的sphinx不一样
++------+--------+------------+------+
+| id   | weight | user_id    | u_id |
++------+--------+------------+------+
+|    3 |   2230 | 1311895260 |   62 |
+|    5 |   2230 | 1311895260 |   33 |
+|    4 |   1304 | 1311895262 |    0 |
+|    6 |   1304 | 1311895262 |   34 |
++------+--------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql&gt; show META;     //上次检索的信息
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| total         | 3     |
+| total_found   | 3     |
+| time          | 0.000 |
+| keyword[0]    | test  |
+| docs[0]       | 3     |
+| hits[0]       | 5     |
++---------------+-------+
+6 rows in set (0.00 sec)
+
+mysql&gt; show tables;    //这里的表其实不是真表，也不是create table创建出来的，是sphinx索引
++--------------+-------------+
+| Index        | Type        |
++--------------+-------------+
+| dist1        | distributed |
+| myorder      | local       |
+| rt           | rt          |
+| tank_test    | rt          |
+| test1        | local       |
+| test1stemmed | local       |
++--------------+-------------+
+6 rows in set (0.00 sec)</pre>
+<p><strong>二，创建sphinx索引</strong></p>
+<p><strong>1,修改/usr/local/sphinx/etc/sphinx.conf</strong></p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">查看</a><a href="#" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">复制</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">打印</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>#&nbsp;vim&nbsp;/usr/local/sphinx/etc/sphinx.conf&nbsp;&nbsp;&nbsp;</span><span class="comment">//添加以下内容</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>index&nbsp;tank_test&nbsp;&nbsp;</span></li><li class=""><span>{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;rt&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;/usr/local/sphinx/<span class="keyword">var</span><span>/data/rt&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;charset_dictpath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;/usr/local/mmseg3/etc/&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;charset_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;zh_cn.utf-8&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;ngram_len&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;rt_field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;name&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;rt_field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;title&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;rt_field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;sub_title&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;rt_attr_uint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;user_id&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;rt_attr_uint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;uid&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="php" name="code"># vim /usr/local/sphinx/etc/sphinx.conf   //添加以下内容
+
+index tank_test
+{
+ type            = rt
+ path            = /usr/local/sphinx/var/data/rt
+ charset_dictpath     = /usr/local/mmseg3/etc/
+ charset_type         = zh_cn.utf-8
+ ngram_len            = 0
+ rt_field        = name
+ rt_field        = title
+ rt_field        = sub_title
+ rt_attr_uint        = user_id
+ rt_attr_uint        = uid
+}</pre>
+<p><span style="color: #800080;"><strong>在这里要注意，rt_field是检索字段，rt_attr_uint是返回字段</strong></span></p>
+<p><strong>2,重启sphinx</strong></p>
+<div class="dp-highlighter"><ol class="dp-c" start="1"><li class="alt"><span><span>#&nbsp;pkill&nbsp;-9&nbsp;searchd&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>#&nbsp;/usr/local/sphinx/bin/indexer&nbsp;--config&nbsp;/usr/local/sphinx/etc/sphinx.conf&nbsp;--all&nbsp;&nbsp;</span></li><li class=""><span>#&nbsp;/usr/local/sphinx/bin/searchd&nbsp;--config&nbsp;/usr/local/sphinx/etc/sphinx.conf&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="php" name="code"># pkill -9 searchd
+
+# /usr/local/sphinx/bin/indexer --config /usr/local/sphinx/etc/sphinx.conf --all
+# /usr/local/sphinx/bin/searchd --config /usr/local/sphinx/etc/sphinx.conf</pre>
+<p><strong>3，插入数据，并查看</strong></p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">查看</a><a href="#" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">复制</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">打印</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>mysql&gt;&nbsp;show&nbsp;tables;&nbsp;&nbsp;</span></span></li><li class=""><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;dist1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;distributed&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;tank_test&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//新增加的索引</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>|&nbsp;test1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;test1stemmed&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>5&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>mysql&gt;&nbsp;desc&nbsp;tank_test;&nbsp;&nbsp;</span></li><li class=""><span>+-----------+---------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;Field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Type&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+-----------+---------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;bigint&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;field&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;field&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;sub_title&nbsp;|&nbsp;field&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;user_id&nbsp;&nbsp;&nbsp;|&nbsp;integer&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;u_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;integer&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>+-----------+---------+&nbsp;&nbsp;</span></li><li class=""><span>6&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>mysql&gt;&nbsp;insert&nbsp;into&nbsp;tank_test&nbsp;values&nbsp;(3,<span class="string">'坦克'</span><span>,</span><span class="string">'tank&nbsp;is&nbsp;坦克'</span><span>,</span><span class="string">'技术总监'</span><span>,1311895260,33);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>mysql&gt;&nbsp;insert&nbsp;into&nbsp;tank_test&nbsp;values&nbsp;(4,<span class="string">'tank张'</span><span>,</span><span class="string">'tank&nbsp;is&nbsp;坦克'</span><span>,</span><span class="string">'技术总监'</span><span>,1311895262,34);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;tank_test&nbsp;where&nbsp;match(<span class="string">'坦克'</span><span>);&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">//匹配搜索的字段是rt_field</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>+------+--------+------------+------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;id&nbsp;&nbsp;&nbsp;|&nbsp;weight&nbsp;|&nbsp;user_id&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;u_id&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//返回的字段是rt_attr_uint</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>+------+--------+------------+------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;|&nbsp;&nbsp;&nbsp;2230&nbsp;|&nbsp;1311895260&nbsp;|&nbsp;&nbsp;&nbsp;33&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;|&nbsp;&nbsp;&nbsp;1304&nbsp;|&nbsp;1311895262&nbsp;|&nbsp;&nbsp;&nbsp;34&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+------+--------+------------+------+&nbsp;&nbsp;</span></li><li class="alt"><span>2&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="php" name="code">mysql&gt; show tables;
++--------------+-------------+
+| Index        | Type        |
++--------------+-------------+
+| dist1        | distributed |
+| rt           | rt          |
+| tank_test    | rt          |      //新增加的索引
+| test1        | local       |
+| test1stemmed | local       |
++--------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql&gt; desc tank_test;
++-----------+---------+
+| Field     | Type    |
++-----------+---------+
+| id        | bigint  |
+| name      | field   |
+| title     | field   |
+| sub_title | field   |
+| user_id   | integer |
+| u_id      | integer |
++-----------+---------+
+6 rows in set (0.00 sec)
+
+mysql&gt; insert into tank_test values (3,'坦克','tank is 坦克','技术总监',1311895260,33);
+
+mysql&gt; insert into tank_test values (4,'tank张','tank is 坦克','技术总监',1311895262,34);
+
+mysql&gt; select * from tank_test where match('坦克');    //匹配搜索的字段是rt_field
++------+--------+------------+------+
+| id   | weight | user_id    | u_id |                 //返回的字段是rt_attr_uint
++------+--------+------------+------+
+|    3 |   2230 | 1311895260 |   33 |
+|    4 |   1304 | 1311895262 |   34 |
++------+--------+------------+------+
+2 rows in set (0.00 sec)
+</pre>
+<p><span style="color: #800080;"><strong>id和weight是系统自带的返回字段<br>
+</strong></span></p>
+<p><span style="color: #800080;"><strong>到这儿索引就创建好了，show tables的时候是可以看新建的tank_test，用phpmyadmin或者其他mysql数据库连接工具根本看不到，原因是他根本不是真实的表。sphinx到底能不能用真实的表呢？</strong></span></p>
+<p><strong>三，创建表，并添加索引</strong></p>
+<p><strong>1,创建真实的表,插入数据</strong></p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">查看</a><a href="#" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">复制</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">打印</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>CREATE&nbsp;TABLE&nbsp;IF&nbsp;NOT&nbsp;EXISTS&nbsp;`orders`&nbsp;(&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;`id`&nbsp;int(11)&nbsp;NOT&nbsp;NULL&nbsp;AUTO_INCREMENT,&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;`user_id`&nbsp;int(11)&nbsp;NOT&nbsp;NULL&nbsp;,&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;`username`&nbsp;varchar(20)&nbsp;NOT&nbsp;NULL,&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;`create_time`&nbsp;datetime&nbsp;NOT&nbsp;NULL,&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;`product_name`&nbsp;varchar(20)&nbsp;NOT&nbsp;NULL,&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;`summary`&nbsp;text&nbsp;NOT&nbsp;NULL,&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;PRIMARY&nbsp;KEY&nbsp;(`id`)&nbsp;&nbsp;</span></li><li class="alt"><span>)&nbsp;ENGINE=InnoDB&nbsp;DEFAULT&nbsp;CHARSET=utf8&nbsp;AUTO_INCREMENT=1&nbsp;;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>INSERT&nbsp;INTO&nbsp;&nbsp;`orders`&nbsp;(`user_id`&nbsp;,`username`&nbsp;,`create_time`&nbsp;,`product_name`&nbsp;,`summary`)&nbsp;VALUES&nbsp;&nbsp;</span></li><li class=""><span>(<span class="string">'1311895262'</span><span>,</span><span class="string">'张三'</span><span>,</span><span class="string">'2014-08-01&nbsp;00:24:54'</span><span>,</span><span class="string">'tank&nbsp;is&nbsp;坦克'</span><span>,</span><span class="string">'技术总监'</span><span>),&nbsp;&nbsp;</span></span></li><li class="alt"><span>(<span class="string">'1311895263'</span><span>,</span><span class="string">'tank张二'</span><span>,</span><span class="string">'2014-08-01&nbsp;00:24:54'</span><span>,</span><span class="string">'tank&nbsp;is&nbsp;坦克'</span><span>,</span><span class="string">'技术经理'</span><span>),&nbsp;&nbsp;</span></span></li><li class=""><span>(<span class="string">'1311895264'</span><span>,</span><span class="string">'tank张一'</span><span>,</span><span class="string">'2014-08-01&nbsp;00:24:54'</span><span>,</span><span class="string">'tank&nbsp;is&nbsp;坦克'</span><span>,</span><span class="string">'DNB经理'</span><span>),&nbsp;&nbsp;</span></span></li><li class="alt"><span>(<span class="string">'1311895265'</span><span>,</span><span class="string">'tank张'</span><span>,</span><span class="string">'2014-08-01&nbsp;00:24:54'</span><span>,</span><span class="string">'tank&nbsp;is&nbsp;坦克'</span><span>,</span><span class="string">'运维总监'</span><span>);&nbsp;&nbsp;</span></span></li></ol></div><pre style="display: none;" class="php" name="code">CREATE TABLE IF NOT EXISTS `orders` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `user_id` int(11) NOT NULL ,
+ `username` varchar(20) NOT NULL,
+ `create_time` datetime NOT NULL,
+ `product_name` varchar(20) NOT NULL,
+ `summary` text NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+INSERT INTO  `orders` (`user_id` ,`username` ,`create_time` ,`product_name` ,`summary`) VALUES
+('1311895262','张三','2014-08-01 00:24:54','tank is 坦克','技术总监'),
+('1311895263','tank张二','2014-08-01 00:24:54','tank is 坦克','技术经理'),
+('1311895264','tank张一','2014-08-01 00:24:54','tank is 坦克','DNB经理'),
+('1311895265','tank张','2014-08-01 00:24:54','tank is 坦克','运维总监');</pre>
+<p><span style="color: #800080;"><strong>在这里要注意，是连接mysql的3306端口，不是连接coreseek sphinx的9306</strong></span></p>
+<p><strong>2，修改/usr/local/sphinx/etc/sphinx.conf，添加以下内容</strong></p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">查看</a><a href="#" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">复制</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">打印</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>source&nbsp;order&nbsp;&nbsp;</span></span></li><li class=""><span>{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;mysql&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;sql_host&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;localhost&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;sql_user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;root&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;sql_pass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;sql_db&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;test&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;sql_query_pre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;SET&nbsp;NAMES&nbsp;utf8&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;sql_query&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;\&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;SELECT&nbsp;id,&nbsp;user_id,&nbsp;username,&nbsp;UNIX_TIMESTAMP(create_time)&nbsp;AS&nbsp;create_time,&nbsp;product_name,&nbsp;summary&nbsp;&nbsp;\&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;FROM&nbsp;orders&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;sql_attr_uint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;user_id&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;sql_attr_timestamp&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;create_time&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;sql_ranged_throttle&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;sql_query_info&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;SELECT&nbsp;*&nbsp;FROM&nbsp;orders&nbsp;WHERE&nbsp;id=<span class="vars">$id</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>index&nbsp;myorder&nbsp;&nbsp;</span></li><li class="alt"><span>{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;order&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;path&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;/usr/local/sphinx/<span class="keyword">var</span><span>/data/myorder&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;docinfo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;extern&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;mlock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;morphology&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;none&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;min_word_len&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;charset_dictpath&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;/usr/local/mmseg3/etc/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;charset_type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;zh_cn.utf-8&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;ngram_len&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;html_strip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="php" name="code">source order
+{
+ type            = mysql
+ sql_host        = localhost
+ sql_user        = root
+ sql_pass        =
+ sql_db            = test
+ sql_query_pre        = SET NAMES utf8
+ sql_query        = \
+ SELECT id, user_id, username, UNIX_TIMESTAMP(create_time) AS create_time, product_name, summary  \
+ FROM orders
+ sql_attr_uint        = user_id
+ sql_attr_timestamp    = create_time
+ sql_ranged_throttle    = 0
+ sql_query_info    = SELECT * FROM orders WHERE id=$id
+}
+
+index myorder
+{
+ source            = order
+ path            = /usr/local/sphinx/var/data/myorder
+ docinfo        = extern
+ mlock            = 0
+ morphology        = none
+ min_word_len        = 1
+ charset_dictpath    = /usr/local/mmseg3/etc/
+ charset_type        = zh_cn.utf-8
+ ngram_len            = 0
+ html_strip        = 0
+}</pre>
+<p><strong>3,重启sphinx</strong></p>
+<div class="dp-highlighter"><ol class="dp-c" start="1"><li class="alt"><span><span>#&nbsp;pkill&nbsp;-9&nbsp;searchd&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>#&nbsp;/usr/local/sphinx/bin/indexer&nbsp;--config&nbsp;/usr/local/sphinx/etc/sphinx.conf&nbsp;--all&nbsp;&nbsp;</span></li><li class=""><span>#&nbsp;/usr/local/sphinx/bin/searchd&nbsp;--config&nbsp;/usr/local/sphinx/etc/sphinx.conf&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="php" name="code"># pkill -9 searchd
+
+# /usr/local/sphinx/bin/indexer --config /usr/local/sphinx/etc/sphinx.conf --all
+# /usr/local/sphinx/bin/searchd --config /usr/local/sphinx/etc/sphinx.conf</pre>
+<p><strong>4，切换到9306，检索测试</strong></p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"><a href="#" onclick="dp.sh.Toolbar.Command('ViewSource',this);return false;">查看</a><a href="#" onclick="dp.sh.Toolbar.Command('CopyToClipboard',this);return false;">复制</a><a href="#" onclick="dp.sh.Toolbar.Command('PrintSource',this);return false;">打印</a><a href="#" onclick="dp.sh.Toolbar.Command('About',this);return false;">?</a></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>mysql&gt;&nbsp;show&nbsp;tables;&nbsp;&nbsp;</span></span></li><li class=""><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;dist1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;distributed&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;myorder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;tank_test&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;rt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;test1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;test1stemmed&nbsp;|&nbsp;local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>+--------------+-------------+&nbsp;&nbsp;</span></li><li class=""><span>6&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>mysql&gt;&nbsp;desc&nbsp;myorder;&nbsp;&nbsp;</span></li><li class="alt"><span>+--------------+-----------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;Field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>+--------------+-----------+&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;bigint&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;product_name&nbsp;|&nbsp;field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;user_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;integer&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;create_time&nbsp;&nbsp;|&nbsp;timestamp&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+--------------+-----------+&nbsp;&nbsp;</span></li><li class="alt"><span>6&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;myorder&nbsp;where&nbsp;match(<span class="string">'坦克'</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>+------+--------+------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;id&nbsp;&nbsp;&nbsp;|&nbsp;weight&nbsp;|&nbsp;user_id&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;create_time&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>+------+--------+------------+-------------+&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;|&nbsp;&nbsp;&nbsp;1304&nbsp;|&nbsp;1311895262&nbsp;|&nbsp;&nbsp;1407081600&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;|&nbsp;&nbsp;&nbsp;1304&nbsp;|&nbsp;1311895263&nbsp;|&nbsp;&nbsp;1406823894&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>|&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;|&nbsp;&nbsp;&nbsp;1304&nbsp;|&nbsp;1311895264&nbsp;|&nbsp;&nbsp;1406823894&nbsp;|&nbsp;&nbsp;</span></li><li class=""><span>|&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;|&nbsp;&nbsp;&nbsp;1304&nbsp;|&nbsp;1311895265&nbsp;|&nbsp;&nbsp;1406823894&nbsp;|&nbsp;&nbsp;</span></li><li class="alt"><span>+------+--------+------------+-------------+&nbsp;&nbsp;</span></li><li class=""><span>4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="php" name="code">mysql&gt; show tables;
++--------------+-------------+
+| Index        | Type        |
++--------------+-------------+
+| dist1        | distributed |
+| myorder      | local       |
+| rt           | rt          |
+| tank_test    | rt          |
+| test1        | local       |
+| test1stemmed | local       |
++--------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql&gt; desc myorder;
++--------------+-----------+
+| Field        | Type      |
++--------------+-----------+
+| id           | bigint    |
+| username     | field     |
+| product_name | field     |
+| summary      | field     |
+| user_id      | integer   |
+| create_time  | timestamp |
++--------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql&gt; select * from myorder where match('坦克');
++------+--------+------------+-------------+
+| id   | weight | user_id    | create_time |
++------+--------+------------+-------------+
+|    5 |   1304 | 1311895262 |  1407081600 |
+|    6 |   1304 | 1311895263 |  1406823894 |
+|    7 |   1304 | 1311895264 |  1406823894 |
+|    8 |   1304 | 1311895265 |  1406823894 |
++------+--------+------------+-------------+
+4 rows in set (0.00 sec)
+</pre>
+
+			<!-- Baidu Button BEGIN -->
+
+<div data-bd-bind="1461674741791" class="bdsharebuttonbox bdshare-button-style0-32" style="float:right;margin-right:15px;"><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_more" data-cmd="more"></a><a title="累计分享1次" class="bds_count" data-cmd="count">1</a> </div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["weixin","tsina","qzone","tqq","renren"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","qzone","tqq","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+			<!-- Baidu Button END -->
+
+    <br><br><b>转载请注明<br>作者:海底苍鹰<br>地址:<a href="http://blog.51yip.com/mysql/1643.html">http://blog.51yip.com/mysql/1643.html</a></b>							</div>
+
+		</div>
+
+	</div>
+
+<div class="navigation">
+	<div class="alignleft">&lt;&lt; <a href="http://blog.51yip.com/php/1644.html" rel="next">mongodb select php操作 命令行操作</a></div>
+	<div class="alignright"><a href="http://blog.51yip.com/mysql/1641.html" rel="prev">coreseek sphinx mmseg mysql 全文检索 安装 配置</a> &gt;&gt;</div>
+</div>
+
+<div style="clear:both;"></div>
+<div class="navigation_line"></div>
+
+<div class="bdbottom"><script type="text/javascript">
+			    var cpro_id = "u2532582";
+			</script><script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/c.js" type="text/javascript"></script><div id="BAIDU_SSP__wrapper_u2532582_0"><iframe id="iframeu2532582_0" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pcym_002.htm" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" style="border:0; vertical-align:bottom;margin:0;" allowtransparency="true" frameborder="0" height="90" width="907" align="center,center"></iframe></div></div><div class="line_ad"></div> 
+	<div class="lastlist">
+		<p>相关文章</p>
+		<ul>
+		<div class="related_post"><ul><li><a href="http://blog.51yip.com/mysql/1658.html" title="sphinx 联合查询 实例">sphinx 联合查询 实例 </a></li><li><a href="http://blog.51yip.com/mysql/1641.html" title="coreseek sphinx mmseg mysql 全文检索 安装 配置">coreseek sphinx mmseg mysql 全文检索 安装 配置 </a></li><li><a href="http://blog.51yip.com/pgsql/1537.html" title="postgresql  删除 数据库,表,索引">postgresql  删除 数据库,表,索引 </a></li><li><a href="http://blog.51yip.com/pgsql/1528.html" title="postgresql 修改表结构，添加索引">postgresql 修改表结构，添加索引 </a></li><li><a href="http://blog.51yip.com/pgsql/1525.html" title="postgresql 查看数据库,表,索引,表空间以及大小">postgresql 查看数据库,表,索引,表空间以及大小 </a></li><li><a href="http://blog.51yip.com/mysql/1661.html" title="sphinx 增量索引 分布式索引 实例">sphinx 增量索引 分布式索引 实例 </a></li><li><a href="http://blog.51yip.com/mysql/1659.html" title="sphinx scws 全文检索 安装 配置 详解">sphinx scws 全文检索 安装 配置 详解 </a></li><li><a href="http://blog.51yip.com/nosql/1577.html" title="mongodb 查看数据库和表大小">mongodb 查看数据库和表大小 </a></li><li><a href="http://blog.51yip.com/pgsql/1524.html" title="postgresql 创建 用户,数据库,表">postgresql 创建 用户,数据库,表 </a></li><li><a href="http://blog.51yip.com/mysql/1515.html" title="mysql 多列索引 详细说明">mysql 多列索引 详细说明 </a></li></ul></div>		
+		</ul>
+	</div>
+
+	<div class="comments">
+		
+<!-- You can start editing here. -->
+
+
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+
+
+<div class="commentrespond">
+
+	<div id="respond">
+
+		<h3>留下评论</h3>
+
+		<div class="cancel-comment-reply">
+			<small><a rel="nofollow" id="cancel-comment-reply-link" href="http://blog.51yip.com/mysql/1643.html#respond" style="display:none;">点击这里取消回复</a></small>
+		</div>
+
+		
+		<form action="http://blog.51yip.com/pl.php" method="post" id="commentform">
+		<fieldset>
+			<legend>留下评论</legend>
+
+			
+			<ul>
+							<li>
+					<label for="author"><span>名称：</span></label>
+					<input name="author" id="author" size="22" tabindex="1" type="text">
+					<span class="req">(必需)</span>
+				</li>
+				<li>
+					<label for="email"><span>电子邮件：</span></label>
+					<input name="email" id="email" size="22" tabindex="2" type="text">
+					<span class="req">(必需) (will not be published)</span>
+				</li>
+				<li>
+					<label for="email"><span>验证码：</span></label>
+					<input name="code" id="code" size="22" tabindex="3" type="text">
+					<input name="ji" id="ji" value="18" size="22" tabindex="3" type="hidden">
+					<span class="req">(必需) &nbsp;&nbsp;9X2=?</span>					
+				</li>
+				<li style="display:none;">
+					<label for="url"><span>URL：</span></label>
+					<input name="url" id="url" size="22" tabindex="4" type="text">
+				</li>
+							<li class="textarea">
+					<label for="comment"><span>您的评论</span></label>
+					<textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea>
+				</li>
+			</ul>
+			<p>
+				<input name="submit" id="submit" tabindex="5" value="提交  评论" type="submit">
+			</p>
+			<input name="comment_post_ID" value="1643" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+					</fieldset>
+		</form>
+
+
+		</div>
+
+</div>
+
+	</div>
+
+	
+
+	
+</div>
+
+<div id="aside">
+
+	<ul>
+
+
+		<li id="text-3" class="widget widget_text"><h3 class="widgettitle">推广<span><!-- --></span></h3>			<div class="textwidget"><script type="text/javascript">
+    /*pc 左边 270*300 图片排行*/
+    var cpro_id = "u2532603";
+</script>
+<script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/c.js" type="text/javascript"></script><div id="BAIDU_SSP__wrapper_u2532603_0"><iframe id="iframeu2532603_0" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pcym_003.htm" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" style="border:0; vertical-align:bottom;margin:0;" allowtransparency="true" frameborder="0" height="300" width="270" align="center,center"></iframe></div></div>
+		</li><li id="categories-3" class="widget widget_categories"><h3 class="widgettitle">分类目录<span><!-- --></span></h3>		<ul>
+	<li class="cat-item cat-item-9"><a href="http://blog.51yip.com/category/apachenginx" title="根apache和nginx有关的文章">apache/nginx</a> (30)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://blog.51yip.com/category/cache" title="根cache有关的文章 ">cache</a> (21)
+</li>
+	<li class="cat-item cat-item-461"><a href="http://blog.51yip.com/category/drupal" title="drupal">drupal</a> (7)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://blog.51yip.com/category/eclipse" title="根eclipse有关的文章">eclipse</a> (8)
+</li>
+	<li class="cat-item cat-item-98"><a href="http://blog.51yip.com/category/google" title="google,google地图,google新闻">google</a> (3)
+</li>
+	<li class="cat-item cat-item-88"><a href="http://blog.51yip.com/category/htmlcss" title="根html和css有关的文章">html/css</a> (11)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://blog.51yip.com/category/jsjquery" title="根js,javascript和jquery有关的文章">js/jquery</a> (59)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://blog.51yip.com/category/linux" title="根linux和windows有关的文章">linux</a> (85)
+</li>
+	<li class="cat-item cat-item-891"><a href="http://blog.51yip.com/category/mariadb" title="查看 mariadb 下的所有文章">mariadb</a> (2)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://blog.51yip.com/category/mysql" title="根mysql有关的文章">mysql</a> (65)
+</li>
+	<li class="cat-item cat-item-756"><a href="http://blog.51yip.com/category/nosql" title="查看 nosql 下的所有文章">nosql</a> (38)
+</li>
+	<li class="cat-item cat-item-520"><a href="http://blog.51yip.com/category/oracle" title="oracle数据库">oracle</a> (9)
+</li>
+	<li class="cat-item cat-item-702"><a href="http://blog.51yip.com/category/pgsql" title="PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES 版本 4.2 为基础的对象关系型数据库管理系统（ORDBMS）,简称pgsql,它支持大部分 SQL">pgsql</a> (7)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://blog.51yip.com/category/php" title="根php有关的文章">php</a> (91)
+</li>
+	<li class="cat-item cat-item-38"><a href="http://blog.51yip.com/category/seo" title="根seo优化有关的文章">seo</a> (16)
+</li>
+	<li class="cat-item cat-item-44"><a href="http://blog.51yip.com/category/shell" title="查看 shell 下的所有文章">shell</a> (11)
+</li>
+	<li class="cat-item cat-item-189"><a href="http://blog.51yip.com/category/smarty" title="smarty学习,smarty使用,smarty技巧">smarty</a> (5)
+</li>
+	<li class="cat-item cat-item-36"><a href="http://blog.51yip.com/category/wordpress" title="根wordpress有关的文章">wordpress</a> (13)
+</li>
+	<li class="cat-item cat-item-135"><a href="http://blog.51yip.com/category/social" title="看到的社会现象">双眼看社会</a> (13)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://blog.51yip.com/category/other" title="杂谈文章">技术其他</a> (21)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://blog.51yip.com/category/server" title="根服务器架构有关的文章，集群，分部式">服务器相关</a> (79)
+</li>
+	<li class="cat-item cat-item-705"><a href="http://blog.51yip.com/category/safe" title="系统安全">系统安全</a> (6)
+</li>
+		</ul>
+</li>		<li id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widgettitle">最近文章<span><!-- --></span></h3>		<ul>
+				<li><a href="http://blog.51yip.com/server/1794.html" title="检查ip被墙的3种方法">检查ip被墙的3种方法 </a></li>
+				<li><a href="http://blog.51yip.com/jsjquery/1793.html" title="js 回调函数 3种用法">js 回调函数 3种用法 </a></li>
+				<li><a href="http://blog.51yip.com/apachenginx/1792.html" title="nginx php-fpm 小VPS 优化">nginx php-fpm 小VPS 优化 </a></li>
+				<li><a href="http://blog.51yip.com/nosql/1791.html" title="redis 无法启动">redis 无法启动 </a></li>
+				<li><a href="http://blog.51yip.com/mysql/1790.html" title="mysql innodb #145 错误解决">mysql innodb #145 错误解决 </a></li>
+				<li><a href="http://blog.51yip.com/mysql/1789.html" title="mysql optimize innodb 优化">mysql optimize innodb 优化 </a></li>
+				<li><a href="http://blog.51yip.com/php/1787.html" title="php error_log 错误信息写入文件">php error_log 错误信息写入文件 </a></li>
+				<li><a href="http://blog.51yip.com/php/1786.html" title="php 替换空行 不匹配空行">php 替换空行 不匹配空行 </a></li>
+				<li><a href="http://blog.51yip.com/jsjquery/1785.html" title="jquery $.proxy 实例详解">jquery $.proxy 实例详解 </a></li>
+				<li><a href="http://blog.51yip.com/jsjquery/1784.html" title="jquery mouseout mouseover 多次执行">jquery mouseout mouseover 多次执行 </a></li>
+				</ul>
+		</li>		<li id="recent-comments-3" class="widget widget_recent_comments">			<h3 class="widgettitle">最近评论和留言<span><!-- --></span></h3>			<ul id="recentcomments"><li class="recentcomments">xiaohuochai 在 <a href="http://blog.51yip.com/aboutme/comment-page-1#comment-17426">关于我</a> 上的评论</li><li class="recentcomments">报错 在 <a href="http://blog.51yip.com/php/928.html/comment-page-1#comment-17423">基于libmemcached，php扩展memcached的安装</a> 上的评论</li><li class="recentcomments">komiles 在 <a href="http://blog.51yip.com/shell/1022.html/comment-page-1#comment-17418">实例详细说明linux下去除重复行命令uniq</a> 上的评论</li><li class="recentcomments">公子千千 在 <a href="http://blog.51yip.com/jsjquery/1076.html/comment-page-1#comment-17416">js正则标志/g /i /m的用法，以及实例</a> 上的评论</li><li class="recentcomments">jitangwen 在 <a href="http://blog.51yip.com/aboutme/comment-page-1#comment-17415">关于我</a> 上的评论</li><li class="recentcomments">woinbin 在 <a href="http://blog.51yip.com/linux/1620.html/comment-page-1#comment-17413">centos pptp 客户端 连接vpn</a> 上的评论</li><li class="recentcomments">gaissiai 在 <a href="http://blog.51yip.com/php/878.html/comment-page-1#comment-17412">5个php实例，细致说明传值与传引用的区别</a> 上的评论</li><li class="recentcomments">崩虾卡拉卡 在 <a href="http://blog.51yip.com/nosql/1727.html/comment-page-1#comment-17399">redis cluster php 客户端 predis</a> 上的评论</li><li class="recentcomments">peterW 在 <a href="http://blog.51yip.com/mysql/949.html/comment-page-1#comment-17395">mysql分表的3种方法</a> 上的评论</li><li class="recentcomments">wpl 在 <a href="http://blog.51yip.com/mysql/1095.html/comment-page-1#comment-17394">mysql workbench导入，导出数据库</a> 上的评论</li></ul>
+		</li><li id="linkcat-2" class="widget widget_links"><h3 class="widgettitle">友情链接<span><!-- --></span></h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.centoscn.com/" target="_blank">centos中文站</a></li>
+<li><a href="http://www.enjoydiy.com/" target="_blank">Enjoy Diy</a></li>
+<li><a href="http://blog.itblood.com/" target="_blank">IT热血青年</a></li>
+<li><a href="http://www.magentonotes.com/" target="_blank">Magento架构师</a></li>
+<li><a href="http://blog.itiwin.cn/" target="_blank">爱T-blog</a></li>
+<li><a href="http://www.iitshare.com/" target="_blank">爱积累爱分享</a></li>
+<li><a href="http://www.nowamagic.net/" rel="friend" target="_blank">简明现代魔法</a></li>
+
+	</ul>
+</li>
+<li id="meta-3" class="widget widget_meta"><h3 class="widgettitle">登录<span><!-- --></span></h3>			<ul>
+			<li><a href="http://blog.51yip.com/wp-login.php?action=register">注册</a></li>			<li><a href="http://blog.51yip.com/wp-login.php">登录</a></li>
+	
+						</ul>
+</li>
+	</ul>
+
+</div>
+
+
+		</div>
+
+	</div>
+
+	<div id="footer">
+
+		<div class="columns">
+			<div class="right">
+				<p>© 2010 海底苍鹰(tank)博客 ٠ Powered by 51yip.com ٠<a href="http://www.miitbeian.gov.cn/" target="_black"> 沪ICP备16002029号-1</a> 
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253709140'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1253709140%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1253709140"><a href="http://www.cnzz.com/stat/website.php?web_id=1253709140" target="_blank" title="站长统计"><img data-bd-imgshare-binded="1" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/pic.gif" hspace="0" vspace="0" border="0"></a></span><script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/z_stat.php" type="text/javascript"></script><script src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/core.php" charset="utf-8" type="text/javascript"></script>
+				</p>
+			</div>
+			<div class="left">
+
+			</div>
+		</div>
+
+	</div>
+
+</div><div style="display: block;" id="SL_balloon_obj"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/imtranslator-s.png&quot;) repeat scroll 0% 0%; display: none; width: 24px; height: 24px; position: absolute; cursor: pointer; visibility: visible; opacity: 1; transition: visibility 0.1s ease 0s, opacity 0.1s linear 0s; left: 740px; top: 455px;" id="SL_button"></div><div style="display: none; margin-top: 30px; margin-left: 1px; direction: ltr; text-align: left; min-height: 40px;" id="SL_shadow_translation_result2"><div></div></div><div style="display: none;" id="SL_shadow_translator"><div id="SL_providers"><div id="SL_P0" title="Google" class="SL_BL_LABLE_ON">G</div><div id="SL_P1" title="Microsoft" class="SL_BL_LABLE_ON">M</div><div id="SL_P2" title="Translator" class="SL_BL_LABLE_ON">T</div></div><div style="background: rgb(244, 245, 245) url(&quot;chrome://imtranslator/content/img/util/bg2.png&quot;) repeat scroll 0% 0%;" id="SL_planshet"><div id="SL_TB"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/imtranslator-s.png&quot;) repeat scroll 0% 0%; display: block; width: 24px; height: 24px; cursor: pointer; position: absolute;" id="bubblelogo"></div><table id="SL_tables"><tr><td width="10%" align="right"><input title="鎖定語言" id="SLloc" type="checkbox"></td><td width="20%" align="left"><select id="SL_lng_from"><option selected="selected" value="auto">檢測語言</option><option value="sq">阿尔巴尼亚语</option><option value="ar">阿拉伯语</option><option value="az">阿塞拜疆语</option><option value="ga">爱尔兰语</option><option value="et">爱沙尼亚语</option><option value="eu">巴斯克语</option><option value="be">白俄罗斯语</option><option value="bg">保加利亚语</option><option value="is">冰岛语</option><option value="pl">波兰语</option><option value="bs">波斯尼亚语</option><option value="fa">波斯语</option><option value="af">布尔语(南非荷兰语)</option><option value="da">丹麦语</option><option value="de">德语</option><option value="ru">俄语</option><option value="fr">法语</option><option value="tl">菲律宾语</option><option value="fi">芬兰语</option><option value="km">高棉语</option><option value="ka">格鲁吉亚语</option><option value="gu">古吉拉特语</option><option value="kk">哈萨克语</option><option value="ht">海地克里奥尔语</option><option value="ko">韩语</option><option value="ha">豪萨语</option><option value="nl">荷兰语</option><option value="gl">加利西亚语</option><option value="ca">加泰罗尼亚语</option><option value="cs">捷克语</option><option value="kn">卡纳达语</option><option value="hr">克罗地亚语</option><option value="la">拉丁语</option><option value="lv">拉脱维亚语</option><option value="lo">老挝语</option><option value="lt">立陶宛语</option><option value="ro">罗马尼亚语</option><option value="mg">马尔加什语</option><option value="mt">马耳他语</option><option value="mr">马拉地语</option><option value="ml">马拉雅拉姆语</option><option value="ms">马来语</option><option value="mk">马其顿语</option><option value="mi">毛利语</option><option value="mn">蒙古语</option><option value="bn">孟加拉语</option><option value="my">缅甸语</option><option value="hmn">苗语</option><option value="zu">南非祖鲁语</option><option value="ne">尼泊尔语</option><option value="no">挪威语</option><option value="pa">旁遮普语</option><option value="pt">葡萄牙语</option><option value="ny">齐切瓦语</option><option value="ja">日语</option><option value="sv">瑞典语</option><option value="sr">塞尔维亚语</option><option value="st">塞索托语</option><option value="si">僧伽罗语</option><option value="eo">世界语</option><option value="sk">斯洛伐克语</option><option value="sl">斯洛文尼亚语</option><option value="sw">斯瓦希里语</option><option value="ceb">宿务语</option><option value="so">索马里语</option><option value="tg">塔吉克语</option><option value="te">泰卢固语</option><option value="ta">泰米尔语</option><option value="th">泰语</option><option value="tr">土耳其语</option><option value="cy">威尔士语</option><option value="ur">乌尔都语</option><option value="uk">乌克兰语</option><option value="uz">乌兹别克语</option><option value="iw">希伯来语</option><option value="el">希腊语</option><option value="es">西班牙语</option><option value="hu">匈牙利语</option><option value="hy">亚美尼亚语</option><option value="ig">伊博语</option><option value="it">意大利语</option><option value="yi">意第绪语</option><option value="hi">印地语</option><option value="su">印尼巽他语</option><option value="id">印尼语</option><option value="jw">印尼爪哇语</option><option value="en">英语</option><option value="yo">约鲁巴语</option><option value="vi">越南语</option><option value="zh-CN">中文简体</option><option value="zh-TW">中文繁体</option></select></td><td width="5%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/switchb.png&quot;) repeat scroll 0% 0%; display: block; width: 10px; height: 10px; cursor: pointer;" title="切換語言" id="SL_switch_b" align="center"></div></td><td width="20%" align="left"><select id="SL_lng_to"><option value="sq">阿尔巴尼亚语</option><option value="ar">阿拉伯语</option><option value="az">阿塞拜疆语</option><option value="ga">爱尔兰语</option><option value="et">爱沙尼亚语</option><option value="eu">巴斯克语</option><option value="be">白俄罗斯语</option><option value="bg">保加利亚语</option><option value="is">冰岛语</option><option value="pl">波兰语</option><option value="bs">波斯尼亚语</option><option value="fa">波斯语</option><option value="af">布尔语(南非荷兰语)</option><option value="da">丹麦语</option><option value="de">德语</option><option value="ru">俄语</option><option value="fr">法语</option><option value="tl">菲律宾语</option><option value="fi">芬兰语</option><option value="km">高棉语</option><option value="ka">格鲁吉亚语</option><option value="gu">古吉拉特语</option><option value="kk">哈萨克语</option><option value="ht">海地克里奥尔语</option><option value="ko">韩语</option><option value="ha">豪萨语</option><option value="nl">荷兰语</option><option value="gl">加利西亚语</option><option value="ca">加泰罗尼亚语</option><option value="cs">捷克语</option><option value="kn">卡纳达语</option><option value="hr">克罗地亚语</option><option value="la">拉丁语</option><option value="lv">拉脱维亚语</option><option value="lo">老挝语</option><option value="lt">立陶宛语</option><option value="ro">罗马尼亚语</option><option value="mg">马尔加什语</option><option value="mt">马耳他语</option><option value="mr">马拉地语</option><option value="ml">马拉雅拉姆语</option><option value="ms">马来语</option><option value="mk">马其顿语</option><option value="mi">毛利语</option><option value="mn">蒙古语</option><option value="bn">孟加拉语</option><option value="my">缅甸语</option><option value="hmn">苗语</option><option value="zu">南非祖鲁语</option><option value="ne">尼泊尔语</option><option value="no">挪威语</option><option value="pa">旁遮普语</option><option value="pt">葡萄牙语</option><option value="ny">齐切瓦语</option><option value="ja">日语</option><option value="sv">瑞典语</option><option value="sr">塞尔维亚语</option><option value="st">塞索托语</option><option value="si">僧伽罗语</option><option value="eo">世界语</option><option value="sk">斯洛伐克语</option><option value="sl">斯洛文尼亚语</option><option value="sw">斯瓦希里语</option><option value="ceb">宿务语</option><option value="so">索马里语</option><option value="tg">塔吉克语</option><option value="te">泰卢固语</option><option value="ta">泰米尔语</option><option value="th">泰语</option><option value="tr">土耳其语</option><option value="cy">威尔士语</option><option value="ur">乌尔都语</option><option value="uk">乌克兰语</option><option value="uz">乌兹别克语</option><option value="iw">希伯来语</option><option value="el">希腊语</option><option selected="selected" value="es">西班牙语</option><option value="hu">匈牙利语</option><option value="hy">亚美尼亚语</option><option value="ig">伊博语</option><option value="it">意大利语</option><option value="yi">意第绪语</option><option value="hi">印地语</option><option value="su">印尼巽他语</option><option value="id">印尼语</option><option value="jw">印尼爪哇语</option><option value="en">英语</option><option value="yo">约鲁巴语</option><option value="vi">越南语</option><option value="zh-CN">中文简体</option><option value="zh-TW">中文繁体</option></select></td><td width="5%" align="center"> </td><td width="6%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/tts-voice.png&quot;) repeat scroll 0% 0%;" title="聆聽" id="SL_TTS_voice"></div></td><td width="6%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/copy_hand.png&quot;) repeat scroll 0% 0%;" title="複製譯文" id="SL_copy"></div></td><td width="6%" align="center"><div id="SL_bbl_font_patch"></div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/font-off.png&quot;) repeat scroll 0% 0%;" title="字體大小" id="SL_bbl_font"></div></td><td width="6%" align="center"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/history.png&quot;) repeat scroll 0% 0%;" title="翻譯歷史" id="SL_TH"></div></td><td width="10%"></td><td width="6%" align="right"><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/pin-off.png&quot;) repeat scroll 0% 0%; display: block; width: 16px; height: 16px; cursor: pointer;" title="固定彈出窗口" id="SL_pin"></div></td></tr></table></div></div><div style="background: rgb(255, 255, 255) url(&quot;chrome://imtranslator/content/img/util/bg.png&quot;) repeat scroll 0% 0%; visibility: visible; min-height: 40px;" id="SL_shadow_translation_result"><div></div></div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/indicator.gif&quot;) repeat scroll 0% 0%; display: block; position: absolute; width: 35px; margin-left: 180px; margin-top: -40px; height: 35px;" id="SL_loading"></div><div style="display: none; height: 0px; width: 0px;" id="SL_player2"></div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/bg2.png&quot;) repeat scroll 0% 0%; display: none;" id="SL_alert100">語言功能限100個字符</div><div style="background: transparent url(&quot;chrome://imtranslator/content/img/util/donate2.png&quot;) repeat scroll 0% 0%;" title="進行一點捐款" id="SL_bbl_donate"></div><div style="background: rgb(255, 255, 255) url(&quot;chrome://imtranslator/content/img/util/bg3.png&quot;) repeat scroll 0% 0%;" id="SL_Balloon_options"><a title="顯示選項" id="OPlnk" href="#">選項</a> : <a title="翻譯歷史" id="HISTlnk" href="#">歷史</a> : <a title="幫助" id="HELPlnk" target="_blank" href="http://about.imtranslator.net/tutorials/presentations/imtranslator-translator-for-firefox/popup-bubble-application/">幫助</a> : <a title="反饋" id="FBlnk" href="#">反饋</a><a title="關閉" href="#" id="SL_Balloon_Close">關閉</a></div></div></div>
+
+
+<script class="javascript" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/shCore.js"></script>
+<script class="javascript" src="coreseek%20sphinx%20%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%B4%A2%E5%BC%95%C2%AB%E6%B5%B7%E5%BA%95%E8%8B%8D%E9%B9%B0%28tank%29%E5%8D%9A%E5%AE%A2_files/high.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'http://blog.51yip.com/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
+
+
+
+
+
+<iframe id="bdSharePopup_selectshare1461674741819bg" class="bdselect_share_bg" style="top: 490px; left: 752px; display: none; width: 248px; height: 92px;" frameborder="0"></iframe><div data-bd-bind="1461674741818" id="bdSharePopup_selectshare1461674741819box" style="top: 490px; left: 752px; display: none; width: 248px;" share-type="selectshare" class="bdselect_share_box"><div class="selectshare-mod-triangle"><div class="triangle-border"></div><div class="triangle-inset"></div></div><div style="width: 248px;" class="bdselect_share_head"><span>分享到</span><a href="http://www.baidu.com/s?wd=mysql%20-h%20127.0.0.1%20-P%209306&amp;tn=SE_hldp08010_vurs2xrp" class="bdselect_share_dialog_search" target="_blank"><i class="bdselect_share_dialog_search_i"></i><span class="bdselect_share_dialog_search_span">百度一下</span></a><a class="bdselect_share_dialog_close"></a></div><div class="bdselect_share_content"><ul class="bdselect_share_list bdshare-button-style0-32"><div class="bdselect_share_partners"><a href="#" class="bds_weixin" data-cmd="weixin"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a></div><a href="#" class="bds_more" data-cmd="more"></a></ul></div></div><div data-bd-bind="1461674741839" id="bdimgshare_1461674741839" class="sr-bdimgshare sr-bdimgshare-list sr-bdimgshare-32 sr-bdimgshare-black" style="height:48px;line-height:38px;font-size:14px;width:autopx;display:none;"><div class="bdimgshare-bg"></div><div class="bdimgshare-content bdsharebuttonbox bdshare-button-style0-32"><label class="bdimgshare-lbl">分享到：</label><a href="#" onclick="return false;" class="bds_weixin" data-cmd="weixin" hidefocus=""></a><a href="#" onclick="return false;" class="bds_tsina" data-cmd="tsina" hidefocus=""></a><a href="#" onclick="return false;" class="bds_qzone" data-cmd="qzone" hidefocus=""></a><a href="#" onclick="return false;" class="bds_tqq" data-cmd="tqq" hidefocus=""></a><a href="#" onclick="return false;" class="bds_renren" data-cmd="renren" hidefocus=""></a><a href="#" onclick="return false;" class="bds_more" data-cmd="more" hidefocus=""></a></div></div></body></html>
